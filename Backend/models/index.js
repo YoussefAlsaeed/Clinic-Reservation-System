@@ -2,23 +2,15 @@ const dbConfig = require('../config/dbConfig.js');
 
 const {Sequelize, DataTypes} = require('sequelize');
 
-const sequelize = new Sequelize(
-  dbConfig.DB,
-  dbConfig.USER,
-  dbConfig.PASSWORD, {
-      host: dbConfig.HOST,
-      dialect: dbConfig.dialect,
-      operatorsAliases: false,
-
-      pool: {
-          max: dbConfig.pool.max,
-          min: dbConfig.pool.min,
-          acquire: dbConfig.pool.acquire,
-          idle: dbConfig.pool.idle
-
-      }
-  }
-)
+const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
+    host: dbConfig.HOST,
+    port: dbConfig.PORT,
+    dialect: dbConfig.dialect,
+    retry: {
+        max: 10, // Number of maximum retries
+        match: [/ETIMEDOUT/, /EHOSTUNREACH/, /ECONNREFUSED/, /ECONNRESET/, /ESOCKETTIMEDOUT/, /ECONNREFUSED/],
+    },
+});
 
 sequelize.authenticate()
 .then(() => {
