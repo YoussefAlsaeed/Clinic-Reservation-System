@@ -1,16 +1,11 @@
 module.exports = (sequelize, DataTypes) => {
-    const Doctor = sequelize.define('Doctor', {
-      doctorID: {
+    const Patient = sequelize.define('Patient', {
+      patientID: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
       },
       username: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        unique: true,
-      },
-      email: {
         type: DataTypes.STRING,
         allowNull: false,
         unique: true,
@@ -27,6 +22,6 @@ module.exports = (sequelize, DataTypes) => {
       timestamps: false, 
     });
     
-    return Doctor;
+    return Patient;
   }
   
