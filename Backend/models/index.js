@@ -36,7 +36,7 @@ db.appointment = require('./appointment.js')(sequelize,DataTypes);
 //relation with slot
 db.doctor.hasMany(sequelize.models.Slot, { foreignKey: 'doctorID' });
 //relation with Appointment
-db.doctor.belongsTo(sequelize.models.User, { foreignKey: 'username', targetKey: 'username' });
+db.doctor.belongsTo(sequelize.models.User, { foreignKey: 'email', targetKey: 'email' });
 
 // Define the associations for foreign keys
 db.appointment.belongsTo(sequelize.models.Doctor, { foreignKey: 'doctorID', targetKey: 'doctorID' });
@@ -46,7 +46,7 @@ db.appointment.belongsTo(sequelize.models.Slot, { foreignKey: 'slotID', targetKe
 db.patient.hasMany(sequelize.models.Appointment, { foreignKey: 'patientID' });
 
 db.patient.hasMany(sequelize.models.Appointment, { foreignKey: 'patientID' });
-db.patient.belongsTo(sequelize.models.User, { foreignKey: 'username', targetKey: 'username' });
+db.patient.belongsTo(sequelize.models.User, { foreignKey: 'email', targetKey: 'email' });
 
 db.slot.belongsTo(sequelize.models.Doctor, { foreignKey: 'doctorID', targetKey: 'doctorID' });
 
