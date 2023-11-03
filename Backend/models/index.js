@@ -36,7 +36,6 @@ db.appointment = require('./appointment.js')(sequelize,DataTypes);
 //relation with slot
 db.doctor.hasMany(sequelize.models.Slot, { foreignKey: 'doctorID' });
 //relation with Appointment
-db.doctor.hasMany(sequelize.models.Appointment, { foreignKey: 'doctorID' });
 db.doctor.belongsTo(sequelize.models.User, { foreignKey: 'username', targetKey: 'username' });
 
 // Define the associations for foreign keys
