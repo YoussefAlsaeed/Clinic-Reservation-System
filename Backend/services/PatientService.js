@@ -89,9 +89,88 @@ const getDoctors = async (req, res) => {
       res.status(500).send("An error occurred while fetching patient's appointments.");
     }
   };
+<<<<<<< Updated upstream
+=======
+
+  const updateAppointmentDoctor = async (req, res) => {
+    try {
+      const { appointmentID, newDoctorID } = req.body;
+  
+      // Find the appointment by appointmentID
+      const appointment = await Appointment.findByPk(appointmentID);
+  
+      if (!appointment) {
+        return res.status(404).send("Appointment not found.");
+      }
+  
+      // Check if the newDoctorID corresponds to a valid doctor
+      const newDoctor = await Doctor.findByPk(newDoctorID);
+  
+      if (!newDoctor) {
+        return res.status(404).send("New doctor not found.");
+      }
+  
+      // Update the appointment with the new doctor
+      appointment.doctorID = newDoctorID;
+      await appointment.save();
+  
+      res.status(200).send("Appointment doctor has been updated.");
+    } catch (error) {
+      console.error(error);
+      res.status(500).send("An error occurred while updating the appointment.");
+    }
+  };
+
+  const updateAppointmentSlot = async (req, res) => {
+    try {
+      const { appointmentID, newSlotID } = req.body;
+  
+      // Find the appointment by appointmentID
+      const appointment = await Appointment.findByPk(appointmentID);
+  
+      if (!appointment) {
+        return res.status(404).send("Appointment not found.");
+      }
+  
+      // Check if the newSlotID corresponds to a valid slot
+      const newSlot = await Slot.findByPk(newSlotID);
+  
+      if (!newSlot) {
+        return res.status(404).send("New slot not found.");
+      }
+  
+      // Mark the previous slot as available (if needed)
+      const previousSlot = await Slot.findByPk(appointment.slotID);
+      if (previousSlot) {
+        previousSlot.isAvailable = true;
+        await previousSlot.save();
+      }
+  
+      // Update the appointment with the new slot
+      appointment.slotID = newSlotID;
+      await appointment.save();
+  
+      // Mark the new slot as unavailable
+      newSlot.isAvailable = false;
+      await newSlot.save();
+  
+      res.status(200).send("Appointment slot has been updated.");
+    } catch (error) {
+      console.error(error);
+      res.status(500).send("An error occurred while updating the appointment.");
+    }
+  };
+  
+>>>>>>> Stashed changes
   
   module.exports = {
     getDoctors,
     makeAppointment,
     viewReservations,
+<<<<<<< Updated upstream
+=======
+    updateAppointmentDoctor,
+    updateAppointmentSlot
+    
+>>>>>>> Stashed changes
 }
