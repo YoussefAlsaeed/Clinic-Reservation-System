@@ -9,8 +9,13 @@ app.use(express.json());
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 
-const router = require('./controllers/doctorController.js')
-app.use(router)
+// Import your controller files
+const userController = require('./controllers/userController');
+const doctorController = require('./controllers/doctorController');
+
+// Use the controllers as middleware
+app.use('/users', userController);
+app.use('/doctors', doctorController);
 
 
 
