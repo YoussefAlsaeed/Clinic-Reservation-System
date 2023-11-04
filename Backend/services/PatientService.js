@@ -89,8 +89,6 @@ const getDoctors = async (req, res) => {
       res.status(500).send("An error occurred while fetching patient's appointments.");
     }
   };
-<<<<<<< Updated upstream
-=======
 
   const updateAppointmentDoctor = async (req, res) => {
     try {
@@ -160,17 +158,14 @@ const getDoctors = async (req, res) => {
       res.status(500).send("An error occurred while updating the appointment.");
     }
   };
-  
->>>>>>> Stashed changes
+ 
   
   module.exports = {
     getDoctors,
     makeAppointment,
     viewReservations,
-<<<<<<< Updated upstream
-=======
+
     updateAppointmentDoctor,
     updateAppointmentSlot
-    
->>>>>>> Stashed changes
+   
 }
