@@ -33,7 +33,6 @@ db.patient = require('./Patient.js')(sequelize,DataTypes);
 db.appointment = require('./appointment.js')(sequelize,DataTypes);
 
 
-
 //relation with slot
 db.doctor.hasMany(sequelize.models.Slot, { foreignKey: 'doctorID' });
 //relation with Appointment

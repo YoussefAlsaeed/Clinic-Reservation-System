@@ -10,13 +10,18 @@ module.exports = (sequelize, DataTypes) => {
         defaultValue: true,  
       },
       time: {
-        type: DataTypes.DATE,
-        unique: true 
+        type: DataTypes.DATE, 
       },
+      doctorID: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      }
+
     }, {
       timestamps: false, 
     });
-
+  
+    
     return Slot;
   }
   
