@@ -5,21 +5,11 @@ module.exports = (sequelize, DataTypes) => {
         primaryKey: true,
         autoIncrement: true,
       },
-      patientID: {
-        type: DataTypes.INTEGER,
-        allowNull: true,
-      },
-      slotID: {
-        type: DataTypes.INTEGER,
-        allowNull: true,
-      }
     }, {
       timestamps: false, 
     });
   
-    
-
-  
     return Appointment; 
   }
+  
   

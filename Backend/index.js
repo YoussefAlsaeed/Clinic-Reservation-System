@@ -10,12 +10,16 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 
 // Import your controller files
-const userController = require('./controllers/userController');
-const doctorController = require('./controllers/doctorController');
+const userController = require('./controllers/UserController');
+const doctorController = require('./controllers/DoctorController');
+const patientController = require('./controllers/PatientController');
+
 
 // Use the controllers as middleware
 app.use('/users', userController);
 app.use('/doctors', doctorController);
+app.use('/patients', patientController);
+
 
 
 
