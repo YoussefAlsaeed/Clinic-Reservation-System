@@ -89,9 +89,39 @@ const getDoctors = async (req, res) => {
       res.status(500).send("An error occurred while fetching patient's appointments.");
     }
   };
+
+  const updateAppointmentDoctor = async (req, res) => {
+    try {
+      const { appointmentID, newDoctorID } = req.body;
+  
+      // Find the appointment by appointmentID
+      const appointment = await Appointment.findByPk(appointmentID);
+  
+      if (!appointment) {
+        return res.status(404).send("Appointment not found.");
+      }
+  
+      // Check if the newDoctorID corresponds to a valid doctor
+      const newDoctor = await Doctor.findByPk(newDoctorID);
+  
+      if (!newDoctor) {
+        return res.status(404).send("New doctor not found.");
+      }
+  
+      // Update the appointment with the new doctor
+      appointment.doctorID = newDoctorID;
+      await appointment.save();
+  
+      res.status(200).send("Appointment doctor has been updated.");
+    } catch (error) {
+      console.error(error);
+      res.status(500).send("An error occurred while updating the appointment.");
+    }
+  };
   
   module.exports = {
     getDoctors,
     makeAppointment,
     viewReservations,
+    updateAppointmentDoctor
 }
