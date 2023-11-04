@@ -1,4 +1,6 @@
 const doctorService = require('../services/DoctorService.js')
+const userService = require('../services/UserService.js')
+
 
 const router = require('express').Router()
 
@@ -26,4 +28,3 @@ const router = require('express').Router()
 
 router.post('/registerDoctor', doctorService.registerDoctor )
 
-module.exports = router
