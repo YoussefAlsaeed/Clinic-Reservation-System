@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
       },
       type: {
-        type: DataTypes.STRING,
+        type: DataTypes.ENUM('DOCTOR', 'PATIENT'),
         allowNull : false,
       }
     }, {
