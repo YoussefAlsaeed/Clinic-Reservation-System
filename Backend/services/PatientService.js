@@ -93,5 +93,5 @@ const getDoctors = async (req, res) => {
   module.exports = {
     getDoctors,
     makeAppointment,
-    viewReservations
+    viewReservations,
 }
