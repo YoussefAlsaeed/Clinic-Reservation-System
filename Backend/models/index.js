@@ -39,13 +39,14 @@ db.doctor.hasMany(sequelize.models.Slot, { foreignKey: 'doctorID' });
 db.doctor.belongsTo(sequelize.models.User, { foreignKey: 'email', targetKey: 'email' });
 
 // Define the associations for foreign keys
-db.appointment.belongsTo(sequelize.models.Doctor, { foreignKey: 'doctorID', targetKey: 'doctorID' });
+// db.appointment.belongsTo(sequelize.models.Doctor, { foreignKey: 'doctorID', targetKey: 'doctorID' });
+db.slot.hasOne(sequelize.models.Appointment, {foreignKey: 'slotID'});
 db.appointment.belongsTo(sequelize.models.Slot, { foreignKey: 'slotID', targetKey: 'slotID' });
 
 //relation with appointment
 db.patient.hasMany(sequelize.models.Appointment, { foreignKey: 'patientID' });
 
-db.patient.hasMany(sequelize.models.Appointment, { foreignKey: 'patientID' });
+// db.patient.hasMany(sequelize.models.Appointment, { foreignKey: 'patientID' });
 db.patient.belongsTo(sequelize.models.User, { foreignKey: 'email', targetKey: 'email' });
 
 db.slot.belongsTo(sequelize.models.Doctor, { foreignKey: 'doctorID', targetKey: 'doctorID' });
