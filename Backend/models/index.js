@@ -28,29 +28,33 @@ db.sequelize = sequelize
 db.doctor = require('./doctor.js')(sequelize,DataTypes);
 db.slot = require('./Slot.js')(sequelize,DataTypes);
 db.user = require('./User.js')(sequelize,DataTypes);
-
 db.patient = require('./Patient.js')(sequelize,DataTypes);
 db.appointment = require('./appointment.js')(sequelize,DataTypes);
 
 
-//relation with slot
+// User one-to-one Patient
+db.user.hasOne(sequelize.models.Patient, { foreignKey: 'email' });
+db.patient.belongsTo(sequelize.models.User, { foreignKey: 'email'});
+
+// User one-to-one Doctor
+db.user.hasOne(sequelize.models.Doctor, { foreignKey: 'email' });
+db.doctor.belongsTo(sequelize.models.User, { foreignKey: 'email'});
+
+// Doctor one-to-many Slots
 db.doctor.hasMany(sequelize.models.Slot, { foreignKey: 'doctorID' });
-//relation with Appointment
-db.doctor.belongsTo(sequelize.models.User, { foreignKey: 'email', targetKey: 'email' });
 
-// Define the associations for foreign keys
-// db.appointment.belongsTo(sequelize.models.Doctor, { foreignKey: 'doctorID', targetKey: 'doctorID' });
-db.slot.hasOne(sequelize.models.Appointment, {foreignKey: 'slotID'});
-db.appointment.belongsTo(sequelize.models.Slot, { foreignKey: 'slotID', targetKey: 'slotID' });
+// Slots many-to-one Doctor
+db.slot.belongsTo(sequelize.models.Doctor, { foreignKey: 'doctorID'});
 
-//relation with appointment
+// Patient one-to-many Appointments
 db.patient.hasMany(sequelize.models.Appointment, { foreignKey: 'patientID' });
 
-// db.patient.hasMany(sequelize.models.Appointment, { foreignKey: 'patientID' });
-db.patient.belongsTo(sequelize.models.User, { foreignKey: 'email', targetKey: 'email' });
+// Appointments many-to-one Patient
+db.appointment.belongsTo(sequelize.models.Patient, { foreignKey: 'patientID'});
 
-db.slot.belongsTo(sequelize.models.Doctor, { foreignKey: 'doctorID', targetKey: 'doctorID' });
-
+// Slot one-to-one Appointment
+db.slot.hasOne(sequelize.models.Appointment, { foreignKey: 'slotID' });
+db.appointment.belongsTo(sequelize.models.Slot, { foreignKey: 'slotID' });
 
 db.sequelize.sync({ force: false })
 .then(() => {

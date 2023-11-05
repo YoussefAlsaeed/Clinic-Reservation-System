@@ -90,34 +90,65 @@ const getDoctors = async (req, res) => {
     }
   };
 
-  const updateAppointmentDoctor = async (req, res) => {
+  const cancelAppointment = async (req, res) => {
     try {
-      const { appointmentID, newDoctorID } = req.body;
+      const { appointmentID } = req.body;
   
-      // Find the appointment by appointmentID
+      // Check if the appointment exists
       const appointment = await Appointment.findByPk(appointmentID);
-  
       if (!appointment) {
         return res.status(404).send("Appointment not found.");
       }
   
-      // Check if the newDoctorID corresponds to a valid doctor
-      const newDoctor = await Doctor.findByPk(newDoctorID);
+      // Get the associated patient and slot for the appointment
+      const slot = await appointment.getSlot();
   
+      // Update the slot to mark it as available
+      await slot.update({ isAvailable: true });
+  
+      // Delete the appointment
+      await appointment.destroy();
+  
+      res.status(200).send("Appointment has been successfully canceled.");
+    } catch (error) {
+      console.error(error);
+      res.status(500).send("An error occurred while canceling the appointment.");
+    }
+  };
+
+  const updateAppointmentDoctor = async (req, res) => {
+    try {
+      const { appointmentID, newDoctorID } = req.body;
+  
+      // Check if the appointment exists
+      const appointment = await Appointment.findByPk(appointmentID);
+      if (!appointment) {
+        return res.status(404).send("Appointment not found.");
+      }
+  
+      // Check if the new doctor exists
+      const newDoctor = await Doctor.findByPk(newDoctorID);
       if (!newDoctor) {
         return res.status(404).send("New doctor not found.");
       }
   
-      // Update the appointment with the new doctor
-      appointment.doctorID = newDoctorID;
-      await appointment.save();
+      // Check if the appointment's slot exists
+      const slot = await Slot.findOne({ where: { slotID: appointment.slotID } });
+      if (!slot) {
+        return res.status(404).send("Slot for the appointment not found.");
+      }
   
-      res.status(200).send("Appointment doctor has been updated.");
+      // Update the slot's doctor to the new doctor
+      await slot.setDoctor(newDoctor);
+  
+      res.status(200).send("Doctor for the appointment has been successfully updated.");
     } catch (error) {
       console.error(error);
-      res.status(500).send("An error occurred while updating the appointment.");
+      res.status(500).send("An error occurred while updating the doctor for the appointment.");
     }
   };
+  
+  
 
   const updateAppointmentSlot = async (req, res) => {
     try {
@@ -135,6 +166,11 @@ const getDoctors = async (req, res) => {
   
       if (!newSlot) {
         return res.status(404).send("New slot not found.");
+      }
+  
+      // Check if the new slot is unavailable
+      if (!newSlot.isAvailable) {
+        return res.status(400).send("New slot is not available.");
       }
   
       // Mark the previous slot as available (if needed)
@@ -158,13 +194,14 @@ const getDoctors = async (req, res) => {
       res.status(500).send("An error occurred while updating the appointment.");
     }
   };
+  
  
   
   module.exports = {
     getDoctors,
     makeAppointment,
     viewReservations,
-
+    cancelAppointment,
     updateAppointmentDoctor,
     updateAppointmentSlot
    
