@@ -37,6 +37,8 @@ const signUp = async (req, res) => {
     res.status(500).send("User registration failed.");
   }
 };
+
+
 const signIn = async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -54,10 +56,27 @@ const signIn = async (req, res) => {
     }
 
     // Determine the user type (doctor or patient)
-    const userType = user.type; // Assuming "type" is a field in the User table
+    const userType = user.type;
 
-    // You can return the user type in the response if needed
-    res.status(200).json({ message: 'User signed in successfully', userType });
+    // Initialize the ID variable
+    let ID = null;
+
+    if (userType === 'DOCTOR') {
+      // If the user is a doctor, find the associated doctor record
+      const doctor = await Doctor.findOne({ where: { email: user.email } });
+      if (doctor) {
+        ID = doctor.doctorID;
+      }
+    } else if (userType === 'PATIENT') {
+      // If the user is a patient, find the associated patient record
+      const patient = await Patient.findOne({ where: { email: user.email } });
+      if (patient) {
+        ID = patient.patientID;
+      }
+    }
+
+    // Return the user's email, type, and the relevant ID (either doctor or patient)
+    res.status(200).json({ email: user.email, type: userType, ID });
   } catch (error) {
     console.error(error);
     res.status(500).send("An error occurred during sign-in.");
@@ -65,8 +84,8 @@ const signIn = async (req, res) => {
 };
 
 
-module.exports = {
- 
+
+module.exports = { 
   signUp,
   signIn
 };
