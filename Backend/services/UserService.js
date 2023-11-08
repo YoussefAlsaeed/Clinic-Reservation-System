@@ -8,9 +8,10 @@ const signUp = async (req, res) => {
   try {
     const { email, password, name, type } = req.body;
 
-    // Check if the provided type is valid (either "doctor" or "patient")
+    //Check if the provided type is valid (either "doctor" or "patient")
     if (type !== 'doctor' && type !== 'patient') {
-      return res.status(400).send("Invalid user type.");
+      
+      return res.status(400).send("Invalid user type: "+ type);
     }
 
     // Check if the email is already in use

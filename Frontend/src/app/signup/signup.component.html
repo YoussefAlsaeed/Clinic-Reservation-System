@@ -1,0 +1,43 @@
+<div class="whole">
+  <div class="container">
+    <div class="signup-box">
+      <div class="signup-form">
+        <form (ngSubmit)="onSubmit()" #signupForm="ngForm">
+          <h1 class="signup-heading2">Sign Up</h1>
+          <div class="form-group2">
+            <input type="email" id="email" name="email" placeholder="Email" required [(ngModel)]="user.email" ngModel name="email">
+          </div>
+          <div class="form-group2">
+            <input type="text" id="name" name="name" placeholder="Name" required [(ngModel)]="user.name" ngModel name="name">
+          </div>
+          <div class="form-group2">
+            <input type="password" id="password" name="password" placeholder="Password" required [(ngModel)]="user.password" ngModel name="password">
+          </div>
+          <div class="form-group">
+            <div class="form-group radio-group">
+              <label for="doctor">Doctor</label>
+              <input type="radio" id="doctor" name="userType" value="doctor" [(ngModel)]="user.type">
+              <label for="patient">Patient</label>
+              <input type="radio" id="patient" name="userType" value="patient" [(ngModel)]="user.type">
+            </div>
+            
+          </div>
+
+          <!-- <div class="form-group2">
+            <input type="text" id="type" name="type" placeholder="Password" required [(ngModel)]="user.userType" ngModel name="type">
+          </div> -->
+          
+          <div class="form-group3">
+            <button type="submit">Sign Up</button>
+          </div>
+          <p>Already have an account? <a href="/signin">Sign In</a></p>
+        </form>
+      </div>
+      <div class="signup-image">
+        <div class="image">
+          <img src="../assets/bg3.png" width="300px" height="10px" alt="Signup Image">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

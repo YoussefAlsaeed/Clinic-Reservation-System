@@ -1,0 +1,175 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  
+}
+.signup-box {
+  display: flex;
+  justify-content: center; /* Center the child elements horizontally */
+  align-items: center; /* Center the child elements vertically */
+  
+}
+
+.signup-form {
+  flex: 1; /* Takes up 50% of the width (or adjust as needed) */
+  padding: 20px; /* Add padding for spacing */
+ 
+  border-top: 20px;
+  width:700px;
+  height:60vh;
+  
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  box-shadow: 2px 4px 3px 3px rgba(0, 0, 0, 0.2)
+  
+}
+
+
+.signup-image {
+  flex: 1; /* Takes up 50% of the width (or adjust as needed) */
+  border-top: 20px;
+  background-color: #01399F;
+  text-align: center;
+  width:30px;
+  height:468.8px;
+  box-shadow: 1px 2.5px 2px 3px rgba(0, 0, 0, 0.2);
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  
+
+}
+.image{
+  padding-top: 60px;
+}
+.whole{
+  justify-content: center;
+  align-items: center;
+  padding-left: 200px;
+}
+.container {
+ 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+  padding-left: 100px;
+  padding-right: 200px;
+  padding-top: 120px;
+  width:800px;
+  
+ /* background-color: white; /* Light baby blue background color for the entire page */
+/*  background-image: url("../../assets/bg.jpg");
+  background-size: cover;
+  background-position: center;*/
+}
+
+/* Add additional styling as needed */
+
+.signup-heading {
+  font-size: 23px; /* Adjust the font size as needed */
+  font-weight: bold; /* Optionally, make it bold */
+  font-family: 'YourFontName', Monospace; /* Change the font family if needed */
+  color:  white;
+  padding-top: 20px;
+ 
+  /* Other styles as per your preference */
+}
+.signup-heading2 {
+  padding-top: 22px;
+  font-size: 28px; /* Adjust the font size as needed */
+  font-weight: bold; /* Optionally, make it bold */
+  font-family: 'YourFontName', Monospace; /* Change the font family if needed */
+  color:#01399F ;
+  text-align: center;
+ 
+  /* Other styles as per your preference */
+}
+
+
+.content-container {
+  display: flex; /* Make the form and image containers flex items */
+  align-items: center; /* Vertically center align the content */
+}
+
+.form-container {
+  background-color: white; /* Light baby blue background color for the form */
+  border-radius: 25px; /* Slightly rounded corners for the form */
+  box-shadow: 0 8px 10px rgba(0, 0, 0, 0.2);
+  padding: 30px; /* Adjusted padding */
+  max-width: 1000px; /* Adjusted width for the form */
+  text-align: center;
+  width: 40%;
+  
+}
+
+.form-group2 {
+  margin-bottom: 15px;
+  padding-left: 70px;
+  
+}
+.radio-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-inline: 40px;
+  padding: 10px;
+  text-align: center;
+  margin-right: 100px;
+}
+
+.radio-group label {
+  margin-left: 50px;
+  
+}
+
+label {
+  text-align: left; /* Align labels to the left (beginning) */
+  display: block; /* Make labels block elements to occupy full width */
+}
+
+input[type="email"],
+input[type="text"],
+input[type="name"],
+input[type="password"] {
+  border: none; /* Remove borders */
+  border-radius: 9px; /* Small curves for text fields */
+  padding: 8px; /* Adjusted padding */
+  width: 100%;
+  background-color: #F5F5F5; /* Light gray background color for text fields */
+  text-align: left; /* Align text to the left (beginning) */
+  max-width: 250px;
+}
+
+button {
+  background-color: #01399F; /* Green button color */
+  color: white;
+  border: none;
+  border-radius: 20px; /* Small curves for the button */
+  padding: 8px 30px 10px;
+  font-size: 16px;
+  cursor: pointer;
+  
+  transition: background-color 0.3s;
+}
+.form-group3
+{
+  padding-left: 120px;
+  padding-top: 30px;
+  padding-bottom: 10px;
+}
+
+button:hover {
+  background-color: #2571FB; /* Darker green on hover */
+}
+
+.image-container {
+  margin-left: 70px; /* Adjust  spacing between the form and the image */
+  
+
+}
+
+img {
+  max-width: 180%; /* Make sure the image fits within its container */
+  height: auto;
+}
