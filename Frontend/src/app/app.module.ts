@@ -6,12 +6,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { SignupComponent } from './signup/signup.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SigninComponent } from './signin/signin.component';
+import { HomePageComponent } from './home-page/home-page.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SignupComponent,
     SigninComponent,
+    HomePageComponent,
+    NavbarComponent,
    
   
   ],
