@@ -20,6 +20,7 @@ export class PatientDashboardComponent implements OnInit {
   selectedReservationForDoctorUpdate: number = 0;
   newSlotID: number = 0;
   newDoctorID: number = 0;
+  selectedAppointment: any;
 
   constructor(private service: PatientService, private route: ActivatedRoute) {}
 
@@ -32,7 +33,10 @@ export class PatientDashboardComponent implements OnInit {
     this.getMyReservations();
     this.getAvailableSlots();
   }
-
+  storeID(event :any) {
+    //this.selectedAppointment =  event.target.value.slotId;;
+    console.log("asjkhsjhsa "+this.selectedAppointment.slotId);
+  }
   getDoctors() {
     this.service.getDoctors().subscribe((data) => {
       this.doctorsList = data;
@@ -40,9 +44,10 @@ export class PatientDashboardComponent implements OnInit {
   }
 
   makeAppointment() {
-    if (this.selectedDoctor) {
-      this.service.makeAppointment(this.patientId, this.selectedDoctor).subscribe(() => {
+    if (this.selectedAppointment) {
+      this.service.makeAppointment(this.patientId, this.selectedAppointment.slotId).subscribe(() => {
         // Refresh reservations after making an appointment
+        console.log("asjkhsjhsa hsbhsa");
         this.getMyReservations();
       });
     }
@@ -51,6 +56,7 @@ export class PatientDashboardComponent implements OnInit {
   getMyReservations() {
     this.service.getMyReservations(this.patientId).subscribe((data) => {
       this.myReservations = data;
+      console.log(data);
     });
   }
 
