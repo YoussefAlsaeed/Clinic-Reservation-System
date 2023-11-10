@@ -2,7 +2,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PatientService } from '../patient.service';
-
+import { MatDialog } from '@angular/material/dialog';
+import { CancelConfirmationDialogComponent } from '../cancel-confirmation-dialog/cancel-confirmation-dialog.component';
+import { MatDialogRef } from '@angular/material/dialog';
 @Component({
   selector: 'app-patient-dashboard',
   templateUrl: './patient-dashboard.component.html',
@@ -22,7 +24,7 @@ export class PatientDashboardComponent implements OnInit {
   newDoctorID: number = 0;
   selectedAppointment: any;
 
-  constructor(private service: PatientService, private route: ActivatedRoute) {}
+  constructor(private service: PatientService, private route: ActivatedRoute,public dialog: MatDialog) {}
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -49,6 +51,7 @@ export class PatientDashboardComponent implements OnInit {
         // Refresh reservations after making an appointment
         console.log("asjkhsjhsa hsbhsa");
         this.getMyReservations();
+        this.getDoctors()
       });
     }
   }
@@ -61,10 +64,26 @@ export class PatientDashboardComponent implements OnInit {
   }
 
   cancelAppointment(appointmentID: number) {
-    this.service.cancelAppointment(appointmentID).subscribe(() => {
-      // Refresh reservations after canceling an appointment
-      this.getMyReservations();
-    });
+    console.log("hi"+appointmentID);
+    // Open the confirmation dialog
+    const dialogRef: MatDialogRef<CancelConfirmationDialogComponent> = this.dialog.open(CancelConfirmationDialogComponent);
+    
+  // Subscribe to the confirmation result
+  dialogRef.afterClosed().subscribe((result: boolean) => {
+    console.log("hehe");
+    console.log(result);
+    if (result) {
+      // User confirmed, proceed with cancellation
+      console.log(appointmentID);
+      this.service.cancelAppointment(appointmentID).subscribe(() => {
+        
+        // Refresh reservations after canceling an appointment
+        this.getMyReservations();
+      });
+    }
+    else {
+      console.error('Invalid appointmentID:', appointmentID);}
+  });
   }
 
   updateSlot() {

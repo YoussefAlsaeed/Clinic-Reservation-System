@@ -1,0 +1,36 @@
+<h1>Doctor Dashboard</h1>
+<div class="slot-form">
+  <label for="date">Date:</label>
+  <input type="date" id="date" >
+
+  <label for="time">Time:</label>
+  <input type="time" id="time" >
+
+  <button>Add Slot</button>
+</div>
+
+<!-- Other parts of your HTML -->
+<table id="slot-table">
+    <thead>
+      <tr>
+        <th>Time</th>
+        <th>Day</th>
+        <th>State</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr >
+        <td></td>
+        <td></td>
+        <td >
+          <div >
+            <p>Not Reserved</p>
+          </div>
+          <ng-template #reservedMessage>
+            <p>Reserved</p>
+          </ng-template>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  

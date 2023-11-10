@@ -43,7 +43,7 @@
         <td>{{ reservation.Slot.time | date:'shortTime' }}</td>
         <td>
           <button >Edit</button>
-          <button >Cancel</button>
+          <button (click)="cancelAppointment(reservation.appointmentID)">Cancel</button>
         </td>
       </tr>
     </tbody>
@@ -51,7 +51,7 @@
 </div>
 
 
-<div class="section">
+<!-- <div class="section">
   <h2>Cancel Appointment</h2>
   <select [(ngModel)]="selectedReservation" required>
     <option value="" disabled>Select a reservation to cancel</option>
@@ -90,4 +90,4 @@
     <option *ngFor="let doctor of doctorsList" [value]="doctor.id">{{ doctor.name }} - {{ doctor.specialty }}</option>
   </select>
   <button (click)="updateDoctor()">Update Doctor</button>
-</div>
+</div> -->
