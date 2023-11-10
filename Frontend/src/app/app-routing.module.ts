@@ -16,7 +16,6 @@ import { PatientDashboardComponent } from './patient/patient-dashboard/patient-d
 const routes: Routes = [
   { path: 'signup', component: SignupComponent },
 
-  { path: '', redirectTo: '/signup', pathMatch: 'full' },
   {path :'signin' , component:SigninComponent},
   {path:'doctor', component:DoctorhomepageComponent},
   { path: '', component: HomePageComponent },

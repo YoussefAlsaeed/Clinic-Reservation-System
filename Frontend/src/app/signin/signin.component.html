@@ -22,29 +22,4 @@
           </form>
         </div>
 
-  <div class="container">
-    <div class="signin-box">
-      <div class="signin-image">
-        <div class="image">
-          <img src="../assets/bg3.png" width="300px" height="10px" alt="Signup Image">
-        </div>
-      </div>
-      <div class="signin-form">
-        <form (ngSubmit)="onSubmit()" #signinForm="ngForm">
-          <h1 class="signin-heading2">Sign In</h1>
-          <div class="form-group2">
-            <input type="email" id="email" name="email" placeholder="Email" required [(ngModel)]="user.email" ngModel name="email">
-          </div>
-          <div class="form-group2">
-            <input type="password" id="password" name="password" placeholder="Password" required [(ngModel)]="user.password" ngModel name="password">
-          </div>
-          <div class="form-group3">
-            <button type="submit">Sign In</button>
-          </div>
-          <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
-        </form>
-
-      </div>
-    </div>
-  </div>
 </div>
