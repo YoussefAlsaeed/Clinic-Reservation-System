@@ -9,6 +9,7 @@ import { AddSlotComponent } from './doctor/add-slot/add-slot.component';
 import { DashboardComponent } from './doctor/dashboard/dashboard.component';
 import { PatientDashboardComponent } from './patient/patient-dashboard/patient-dashboard.component';
 import { PatientHomePageComponent } from './patient/patient-home-page/patient-home-page.component';
+import { PatientDashboard2Component } from './patient/patientdashboard2/patientdashboard2.component';
 
 
 //import { DoctorModule } from './doctor/doctor.module'; // Import the SlotModule
@@ -16,6 +17,7 @@ import { PatientHomePageComponent } from './patient/patient-home-page/patient-ho
 const routes: Routes = [
   { path: 'signup', component: SignupComponent },
 
+  {path : 'patient/dashboard2', component: PatientDashboard2Component},
   {path :'signin' , component:SigninComponent},
   {path:'patient/homepage/:patientId', component:PatientHomePageComponent},
   { path: '', component: HomePageComponent },
@@ -23,7 +25,8 @@ const routes: Routes = [
   {path :'signin' , component:SigninComponent},
   {path : 'slot', component: AddSlotComponent},
   {path : 'doctor/dashboard/:doctorId', component: DashboardComponent},
-  {path : 'patient/dashboard/:patientId', component: PatientDashboardComponent}
+  {path : 'patient/dashboard/:patientId', component: PatientDashboardComponent},
+  
 
 
 ];
@@ -32,7 +35,7 @@ const routes: Routes = [
   declarations: [],
   imports: [
     RouterModule.forRoot(routes),
-    CommonModule,/*DoctorModule*/
+    CommonModule,
   ],
   exports: [RouterModule]
 })

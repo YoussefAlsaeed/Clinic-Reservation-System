@@ -27,9 +27,8 @@ export class PatientService {
   }
 
   cancelAppointment(appointmentID: number): Observable<any> {
-    const url = `${this.baseUrl}/cancelAppointment`;
-    const body = { appointmentID };
-    return this.http.post<any>(url, body);
+    const url = `${this.baseUrl}/cancelAppointment/${appointmentID}`;
+    return this.http.delete<any>(url);
   }
 
   updateSlot(appointmentID: number, newSlotID: number): Observable<any> {

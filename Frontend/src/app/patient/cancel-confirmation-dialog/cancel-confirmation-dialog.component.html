@@ -1,0 +1,14 @@
+<!-- cancel-confirmation-dialog.component.html -->
+<!-- <div class="dialog-container">
+    <p>Are you sure you want to cancel this appointment?</p>
+    <button (click)="confirm()">Yes</button>
+    <button (click)="cancel()">No</button>
+  </div> -->
+  <h2 mat-dialog-title>Confirmation</h2>
+    <mat-dialog-content>
+      Are you sure you want to cancel this appointment?
+    </mat-dialog-content>
+    <mat-dialog-actions>
+      <button mat-button (click)="onConfirm()">Yes</button>
+      <button mat-button (click)="onCancel()">No</button>
+    </mat-dialog-actions>

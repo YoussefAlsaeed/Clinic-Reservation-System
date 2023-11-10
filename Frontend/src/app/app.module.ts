@@ -14,7 +14,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatNativeDateModule} from '@angular/material/core';
 //import { CreateSlotComponent } from '../app/doctor/create-slot/create-slot.component'
 //import { SlotService } from '../app/doctor/slot.service';
-
+import { MatDialogModule } from '@angular/material/dialog';
 import { HomePageComponent } from './home-page/home-page.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { DoctorModule } from './doctor/doctor.module';
@@ -41,6 +41,7 @@ import { PatientModule } from './patient/patient.module';
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
+    MatDialogModule,
    
     MatFormFieldModule, MatInputModule, MatDatepickerModule, MatNativeDateModule,
   ],
