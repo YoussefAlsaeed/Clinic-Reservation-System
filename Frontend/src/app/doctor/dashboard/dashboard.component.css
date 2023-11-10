@@ -1,3 +1,6 @@
+h1{
+    padding-top: 60px;
+}
 table {
     width: 100%;
     border-collapse: collapse;
@@ -20,3 +23,12 @@ table {
   .slot-form {
     margin-top: 20px;
   }
+  .available {
+    color: rgb(21, 161, 21);
+    font-weight: bold;
+  }
+  
+  .reserved {
+    color: red;
+    font-weight: bold;
+  } 

@@ -45,8 +45,10 @@
   /* doctorhomepage.component.css */
 
   .right-section {
+    padding-top: 60px;
     text-align: left; /* Align images to the right */
     display:block;
+    padding-left: 180px;
    
   }
   
@@ -74,7 +76,8 @@
 .quote p {
   display: inline-block;
   vertical-align: middle;
-  margin: 20px 10px; /* Remove default paragraph margins */
+  margin: 20px 10px; 
+  padding-bottom: 20px;
 }
 
 /* Additional styling as needed */
@@ -83,6 +86,7 @@
     .word2 {
     display: inline-block;
     vertical-align: middle;
+    
   }
   
   /* Additional styling as needed */
@@ -110,19 +114,21 @@
   }
   
   .main-content {
-    display: flex;
-    justify-content: space-between;
-    padding-left: 100px;
-   
-    padding: 50px;
+    /* display: flex;
+    
+    /* padding-right: 1300px; */
+    /* justify-content: center;  */
+    align-content: center;
+    padding-left: 150px;
     background-color: white;
   }
   
   .left-section {
     padding-left: 70px;
-    padding-top: 60px;
+    padding-top: 20px; 
     width: 50%;
-    padding-right: 20px;
+    padding-left: 15%;
+    
   }
   .word4{
     padding-top: 20px;
@@ -147,18 +153,26 @@
     text-decoration: none;
     font-weight: bold;
     border-radius: 10px;
+    border-color: #01399F;
     transition: background-color 0.3s ease;
   }
   
   .cta-button:hover {
-    background-color: #0097a7;
+    background-color: #586bf8;
   }
   
-  .right-section img {
-   display: block;
-    padding-left:0px;
-    border-top-right-radius: 40px;
-    border-bottom-left-radius: 40px;
+  .image-container1 img{
+    display: block;
+    
+    border-top-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+    margin-bottom: 20px;
+  }
+  .image-container2 img{
+    display: block;
+    
+    border-top-left-radius: 50px;
+    border-bottom-right-radius: 50px;
     margin-bottom: 20px;
   }
   .button{

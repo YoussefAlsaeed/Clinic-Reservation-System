@@ -9,6 +9,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { AddSlotComponent } from './doctor/add-slot/add-slot.component';
 import { DashboardComponent } from './doctor/dashboard/dashboard.component';
 import { PatientDashboardComponent } from './patient/patient-dashboard/patient-dashboard.component';
+import { PatientHomePageComponent } from './patient/patient-home-page/patient-home-page.component';
 
 
 //import { DoctorModule } from './doctor/doctor.module'; // Import the SlotModule
@@ -17,7 +18,7 @@ const routes: Routes = [
   { path: 'signup', component: SignupComponent },
 
   {path :'signin' , component:SigninComponent},
-  {path:'doctor', component:DoctorhomepageComponent},
+  {path:'patient/homepage/:patientId', component:PatientHomePageComponent},
   { path: '', component: HomePageComponent },
   //{ path: '', redirectTo: '/signup', pathMatch: 'full' },
   {path :'signin' , component:SigninComponent},

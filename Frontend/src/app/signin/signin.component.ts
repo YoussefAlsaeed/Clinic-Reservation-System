@@ -39,7 +39,7 @@ export class SigninComponent {
         }
         else if (userType === 'PATIENT') {
           const patientId = this.resUser.ID;
-          this.router.navigate(['/patient/dashboard', patientId]);
+          this.router.navigate(['/patient/homepage', patientId]);
         }
       },
       (error) => {

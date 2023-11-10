@@ -20,9 +20,9 @@
     </thead>
     <tbody>
       <tr *ngFor="let slot of slots">
-        <td>{{ slot.time | date:'hh:mm a' }}</td>
-        <td>{{ slot.time | date:'EEEE, MMM d, y' }}</td>
-        <td>
+        <td>{{ slot.time | date:'hh:mm a':'UTC' }}</td>
+        <td>{{ slot.time | date:'EEEE, MMM d, y':'UTC' }}</td>
+        <td [ngClass]="{'available': slot.isAvailable, 'reserved': !slot.isAvailable}">
           <div *ngIf="slot.isAvailable; else reservedMessage">
             <p>Not Reserved</p>
           </div>

@@ -58,6 +58,7 @@ const signIn = async (req, res) => {
 
     // Determine the user type (doctor or patient)
     const userType = user.type;
+    let username = '';
 
     // Initialize the ID variable
     let ID = null;
@@ -68,17 +69,19 @@ const signIn = async (req, res) => {
       if (doctor) {
         console.log("Doctor");
         ID = doctor.doctorID;
+        username = doctor.name;
       }
     } else if (userType === 'PATIENT') {
       // If the user is a patient, find the associated patient record
       const patient = await Patient.findOne({ where: { email: user.email } });
       if (patient) {
         ID = patient.patientID;
+        username = patient.name;
       }
     }
 
     // Return the user's email, type, and the relevant ID (either doctor or patient)
-    res.status(200).json({ email: user.email, type: userType, ID });
+    res.status(200).json({name:username,type: userType, ID });
   } catch (error) {
     console.error(error);
     res.status(500).send("An error occurred during sign-in.");
