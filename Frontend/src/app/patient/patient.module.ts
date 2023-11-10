@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PatientDashboardComponent } from './patient-dashboard/patient-dashboard.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -9,7 +10,8 @@ import { PatientDashboardComponent } from './patient-dashboard/patient-dashboard
     PatientDashboardComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule,
   ]
 })
 export class PatientModule { }
