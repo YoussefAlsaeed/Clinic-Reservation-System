@@ -8,6 +8,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { SigninComponent } from './signin/signin.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { DoctorModule } from './doctor/doctor.module';
+import { PatientModule } from './patient/patient.module';
 
 @NgModule({
   declarations: [
@@ -16,6 +18,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     SigninComponent,
     HomePageComponent,
     NavbarComponent,
+    
    
   
   ],

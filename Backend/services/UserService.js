@@ -66,6 +66,7 @@ const signIn = async (req, res) => {
       // If the user is a doctor, find the associated doctor record
       const doctor = await Doctor.findOne({ where: { email: user.email } });
       if (doctor) {
+        console.log("Doctor");
         ID = doctor.doctorID;
       }
     } else if (userType === 'PATIENT') {
