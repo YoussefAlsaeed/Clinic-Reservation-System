@@ -2,3 +2,23 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+=======
+@import url('https://unpkg.com/boxicons@latest/css/boxicons.min.css');
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+
+body {
+    background: rgb(255, 255, 255) !important;
+    font-family: 'Montserrat', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.font { 
+    font-family: 'Amatic SC', cursive;
+    font-weight: 700 !important;
+    font-size: 42px;
+}
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
