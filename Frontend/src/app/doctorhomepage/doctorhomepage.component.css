@@ -1,0 +1,177 @@
+/* doctorhomepage.component.css */
+
+.doctor-homepage {
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .header {
+    background-color:#01399F;
+    color: #fff;
+   
+    text-align: center;padding-left: 50px;
+    font-size: 10px;
+    padding-bottom: 1px;
+    padding-top: 0px;
+    font-family: serif;
+  }
+  .word2{
+    padding-left: 0px;
+    padding-top: 10px;
+    
+  }
+  .word3{
+    padding-top: 30px;
+   
+  }
+  .icon img {
+    margin-right: 1px; /* Adjust the margin to provide spacing between the icon and text */
+    padding-left: 40px;
+    padding-top: 10px;
+    padding-right: 0px;
+
+  }
+  .word1{
+    padding-top: 1;
+    padding-bottom: 15px;
+    padding-left: 5px;
+  }
+  /* doctorhomepage.component.css */
+
+.icon {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 2px; /* Adjust the margin as needed for spacing */
+  }
+  /* doctorhomepage.component.css */
+
+  .right-section {
+    text-align: left; /* Align images to the right */
+    display:block;
+   
+  }
+  
+  
+
+
+
+/* Additional styling as needed */
+
+  
+  
+  .quote {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  /* doctorhomepage.component.css */
+
+
+.icon2 img {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+.quote p {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 20px 10px; /* Remove default paragraph margins */
+}
+
+/* Additional styling as needed */
+
+  
+    .word2 {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  
+  /* Additional styling as needed */
+  
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .nav-menu ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+  }
+  
+  .nav-menu li {
+    margin: 0 15px;
+  }
+  
+  .nav-menu a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+  }
+  
+  .main-content {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 100px;
+   
+    padding: 50px;
+    background-color: white;
+  }
+  
+  .left-section {
+    padding-left: 70px;
+    padding-top: 60px;
+    width: 50%;
+    padding-right: 20px;
+  }
+  .word4{
+    padding-top: 20px;
+    font-size: 13px;
+    font-weight: 100;
+    line-height: 1;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
+  }
+  .quote {
+    font-size: 100px;
+    line-height: 0.1;
+    margin-bottom: 10px;
+    font-weight: bolder;
+    color:#01399F
+  }
+  
+  .cta-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #01399F;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .cta-button:hover {
+    background-color: #0097a7;
+  }
+  
+  .right-section img {
+   display: block;
+    padding-left:0px;
+    border-top-right-radius: 40px;
+    border-bottom-left-radius: 40px;
+    margin-bottom: 20px;
+  }
+  .button{
+    padding-top: 30px;
+  }
+  
+  .footer {
+    background-color: #01399F;
+    color: #fff;
+    padding: 2px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+  
