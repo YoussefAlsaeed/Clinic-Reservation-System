@@ -7,7 +7,6 @@ import { SignupComponent } from './signup/signup.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SigninComponent } from './signin/signin.component';
 
-import { DoctorhomepageComponent } from './doctorhomepage/doctorhomepage.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatInputModule} from '@angular/material/input';
@@ -27,8 +26,6 @@ import { PatientModule } from './patient/patient.module';
     AppComponent,
     SignupComponent,
     SigninComponent,
-
-    DoctorhomepageComponent,
  
     //CreateSlotComponent
 

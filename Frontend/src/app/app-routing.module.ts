@@ -4,7 +4,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { SignupComponent } from './signup/signup.component';
 import { SigninComponent } from './signin/signin.component';
 
-import { DoctorhomepageComponent } from './doctorhomepage/doctorhomepage.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { AddSlotComponent } from './doctor/add-slot/add-slot.component';
 import { DashboardComponent } from './doctor/dashboard/dashboard.component';
