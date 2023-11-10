@@ -5,7 +5,6 @@ import { SignupComponent } from './signup/signup.component';
 import { SigninComponent } from './signin/signin.component';
 
 import { DoctorhomepageComponent } from './doctorhomepage/doctorhomepage.component';
-=======
 import { HomePageComponent } from './home-page/home-page.component';
 import { AddSlotComponent } from './doctor/add-slot/add-slot.component';
 import { DashboardComponent } from './doctor/dashboard/dashboard.component';
@@ -20,8 +19,6 @@ const routes: Routes = [
   { path: '', redirectTo: '/signup', pathMatch: 'full' },
   {path :'signin' , component:SigninComponent},
   {path:'doctor', component:DoctorhomepageComponent},
- 
-  
   { path: '', component: HomePageComponent },
   //{ path: '', redirectTo: '/signup', pathMatch: 'full' },
   {path :'signin' , component:SigninComponent},
