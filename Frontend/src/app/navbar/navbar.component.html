@@ -1,13 +1,25 @@
 <header>
 
     <a href="#" class="logo" > Whitey Care</a>
+    <div *ngIf="menuType==='default'"class="default">
+        <ul class="navlist">
+            <li><a href="signup">Signup</a></li>
+            <li><a href="signin">Login</a></li>
 
-    <ul class="navlist">
-        <li><a href="signup">Signup</a></li>
-        <li><a href="signin">Login</a></li>
 
+        </ul>
+    </div>
+    <div *ngIf="menuType==='doctor'"class="doctor">
+        <ul class="navlist">
+            <li><a href="">Logout</a></li>
+        </ul>
+    </div>
+    <div *ngIf="menuType==='patient'"class="patient">
+        <ul class="navlist">
+            <li><a href="">Logout</a></li>
+        </ul>
+    </div>
 
-    </ul>
  <!-- <div class="bx bx-menu" id="menau-icon"></div> -->
    
 </header>
