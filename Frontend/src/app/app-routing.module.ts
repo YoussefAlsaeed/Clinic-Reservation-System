@@ -3,20 +3,24 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { SignupComponent } from './signup/signup.component';
 import { SigninComponent } from './signin/signin.component';
+import { DoctorhomepageComponent } from './doctorhomepage/doctorhomepage.component';
 
+//import { DoctorModule } from './doctor/doctor.module'; // Import the SlotModule
 
 const routes: Routes = [
   { path: 'signup', component: SignupComponent },
   { path: '', redirectTo: '/signup', pathMatch: 'full' },
-  {path :'signin' , component:SigninComponent}
-
+  {path :'signin' , component:SigninComponent},
+  {path:'doctor', component:DoctorhomepageComponent},
+ 
+  
 ];
 
 @NgModule({
   declarations: [],
   imports: [
     RouterModule.forRoot(routes),
-    CommonModule
+    CommonModule,/*DoctorModule*/
   ],
   exports: [RouterModule]
 })

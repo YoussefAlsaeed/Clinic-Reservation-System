@@ -19,9 +19,9 @@ body {
     width:700px;
     height:60vh;
     
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
-    box-shadow: 2px 4px 3px 3px rgba(0, 0, 0, 0.2)
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: 2px 3px 2px 3px rgba(0, 0, 0, 0.2)
     
   }
   
@@ -34,8 +34,8 @@ body {
     width:30px;
     height:468.8px;
     box-shadow: 1px 2.5px 2px 3px rgba(0, 0, 0, 0.2);
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
     
   
   }
@@ -76,7 +76,7 @@ body {
     /* Other styles as per your preference */
   }
   .signin-heading2 {
-    padding-top: 22px;
+    padding-top: 60px;
     font-size: 28px; /* Adjust the font size as needed */
     font-weight: bold; /* Optionally, make it bold */
     font-family: 'YourFontName', Monospace; /* Change the font family if needed */
@@ -118,7 +118,6 @@ body {
   
   input[type="email"],
   input[type="text"],
-  input[type="name"],
   input[type="password"] {
     border: none; /* Remove borders */
     border-radius: 9px; /* Small curves for text fields */
