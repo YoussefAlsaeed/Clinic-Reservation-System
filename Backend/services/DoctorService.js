@@ -8,25 +8,24 @@ const createSlot = async (req, res) => {
   try {
     // Extract the slot information from the request body
     const slotInfo = {
-      isAvailable: req.body.isAvailable,
+      isAvailable: true,
       time: req.body.time,
     };
 
-    // Get the doctorID from the request or another source (e.g., authentication)
     const doctorID = req.body.doctorID;
 
     // Check if a slot with the same time already exists
     const existingSlot = await Slot.findOne({ where: { time: slotInfo.time, doctorID } });
 
     if (existingSlot) {
-      res.status(400).send("A slot with this time already exists.");
+      res.status(400).json({ error: "A slot with this time already exists." });
       return;
     }
 
     // Check if the doctor with the given ID exists
     const doctor = await Doctor.findByPk(doctorID);
     if (!doctor) {
-      res.status(404).send("Doctor not found.");
+      res.status(404).json({ error: "Doctor not found." });
       return;
     }
 
@@ -34,14 +33,39 @@ const createSlot = async (req, res) => {
     const slot = await Slot.create(slotInfo);
     await doctor.addSlot(slot);
 
-    res.status(200).send("Slot has been successfully reserved");
+    res.status(200).json({ message: "Slot has been successfully reserved", slot });
     console.log(slot);
   } catch (error) {
     console.error(error);
-    res.status(500).send("An error occurred while creating the slot.");
+    res.status(500).json({ error: "An error occurred while creating the slot." });
+  }
+};
+
+const getSlotsForDoctor = async (req, res) => {
+  try {
+    // Get the doctorID from the request parameters
+    const doctorID = req.params.doctorID;
+
+    // Check if the doctor with the given ID exists
+    const doctor = await Doctor.findByPk(doctorID);
+
+    if (!doctor) {
+      res.status(404).json({ error: "Doctor not found." });
+      return;
+    }
+
+    // Use Sequelize association to get slots for the specified doctor
+    const slots = await doctor.getSlots();
+
+    // Return the slots in the response
+    res.status(200).json(slots);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "An error occurred while fetching the slots." });
   }
 };
 
 module.exports = {
-    createSlot
+    createSlot,
+    getSlotsForDoctor
 }

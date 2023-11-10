@@ -7,7 +7,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 11px 6%;
+    padding: 6px 6%;
     /* background: transparent; */
     background-color: #01399F;
 }
@@ -62,7 +62,7 @@ header {
         flex-direction: column;
         padding: 50px 20px;
         transition: all .55 ease;
-
+        /* display: none; */
 
     }
     .navlist a{
@@ -74,5 +74,6 @@ header {
     }
     .navlist.open{
         right:0;
+        display: flex;
     }
 }

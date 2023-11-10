@@ -1,0 +1,36 @@
+<h1>Doctor Dashboard</h1>
+<div class="slot-form">
+  <label for="date">Date:</label>
+  <input type="date" id="date" [(ngModel)]="dateInput">
+
+  <label for="time">Time:</label>
+  <input type="time" id="time" [(ngModel)]="timeInput">
+
+  <button (click)="addSlot()">Add Slot</button>
+</div>
+
+<!-- Other parts of your HTML -->
+<table id="slot-table">
+    <thead>
+      <tr>
+        <th>Time</th>
+        <th>Day</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let slot of slots">
+        <td>{{ slot.time | date:'hh:mm a' }}</td>
+        <td>{{ slot.time | date:'EEEE, MMM d, y' }}</td>
+        <td>
+          <div *ngIf="slot.isAvailable; else reservedMessage">
+            <p>Not Reserved</p>
+          </div>
+          <ng-template #reservedMessage>
+            <p>Reserved</p>
+          </ng-template>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  
