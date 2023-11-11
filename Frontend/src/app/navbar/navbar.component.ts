@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NotificationsService } from '../notifications.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit{
     menuType:String ='default';
+
     constructor(private route:Router){}
 
     ngOnInit(): void {
@@ -25,11 +27,14 @@ export class NavbarComponent implements OnInit{
           }
         }
       });
+      
     
   }
   toggleMenu() {
     const navList = document.querySelector('.navlist');
     navList?.classList.toggle('open');
   }
-    }
+
+  
+}
 

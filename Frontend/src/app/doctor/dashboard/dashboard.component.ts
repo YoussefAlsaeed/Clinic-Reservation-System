@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DoctorService } from '../doctor.service';
+import { NotificationsService } from 'src/app/notifications.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,8 +14,9 @@ export class DashboardComponent implements OnInit {
   dateInput: string = '';
   timeInput: string = '';
   slots: any[] = [];
+  notifications: any[] = [];
 
-  constructor(private service: DoctorService, private route: ActivatedRoute) {}
+  constructor(private service: DoctorService, private route: ActivatedRoute,private notificationService: NotificationsService) {}
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -23,6 +25,7 @@ export class DashboardComponent implements OnInit {
     });
     console.log(this.doctorId);
     this.fetchSlots();
+    this.fetchNotifications();
   }
 
   fetchSlots() {
@@ -50,5 +53,18 @@ export class DashboardComponent implements OnInit {
     } else {
       alert('Please enter date and time.');
     }
+  }
+  fetchNotifications(): void {
+    this.notificationService.getEventsForDoctor(1).subscribe(
+      (notifications) => {
+        this.notifications = notifications;
+        console.log(this.notifications);
+        // You can add additional logic to check unread messages and update the icon
+      },
+      (error) => {
+        console.error('Error fetching notifications:', error);
+        // Handle the error
+      }
+    );
   }
 }

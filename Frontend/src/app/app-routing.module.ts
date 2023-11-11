@@ -9,15 +9,13 @@ import { AddSlotComponent } from './doctor/add-slot/add-slot.component';
 import { DashboardComponent } from './doctor/dashboard/dashboard.component';
 import { PatientDashboardComponent } from './patient/patient-dashboard/patient-dashboard.component';
 import { PatientHomePageComponent } from './patient/patient-home-page/patient-home-page.component';
-import { PatientDashboard2Component } from './patient/patientdashboard2/patientdashboard2.component';
+
 
 
 //import { DoctorModule } from './doctor/doctor.module'; // Import the SlotModule
 
 const routes: Routes = [
   { path: 'signup', component: SignupComponent },
-
-  {path : 'patient/dashboard2', component: PatientDashboard2Component},
   {path :'signin' , component:SigninComponent},
   {path:'patient/homepage/:patientId/:username', component:PatientHomePageComponent},
   { path: '', component: HomePageComponent },

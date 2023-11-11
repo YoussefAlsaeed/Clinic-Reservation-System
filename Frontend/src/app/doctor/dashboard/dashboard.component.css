@@ -9,6 +9,18 @@
   flex-direction: column;
   margin-left: 6%;
 }
+.notification{
+  color: #01399F;
+ font-size: 25px;
+ z-index: 10001;
+ cursor: pointer;
+ display: block;
+ cursor: pointer;
+ margin-left: 90%;
+}
+.notification:hover{
+  color: rgb(74, 164, 255);
+}
 
 h1 {
   color: #01399F;
