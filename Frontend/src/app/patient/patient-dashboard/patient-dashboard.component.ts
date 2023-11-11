@@ -16,14 +16,15 @@ export class PatientDashboardComponent implements OnInit {
   doctorsList: any[] = [];
   myReservations: any[] = [];
   availableSlots: any[] = [];
-
+  selectedUpdateAppointment: number = 0;
   selectedDoctor: number = 0;
   selectedReservation: number = 0;
   selectedReservationForSlotUpdate: number = 0;
   selectedReservationForDoctorUpdate: number = 0;
-  newSlotID: number = 0;
+  newSlotID:any;
   newDoctorID: number = 0;
   selectedAppointment: any;
+  
 
   constructor(private service: PatientService, private route: ActivatedRoute,public dialog: MatDialog) {}
 
@@ -72,7 +73,7 @@ export class PatientDashboardComponent implements OnInit {
     
   // Subscribe to the confirmation result
   dialogRef.afterClosed().subscribe((result: boolean) => {
-    console.log("hehe");
+    
     console.log(result);
     if (result) {
       // User confirmed, proceed with cancellation
@@ -89,17 +90,35 @@ export class PatientDashboardComponent implements OnInit {
   }
 
   updateSlot() {
-    if (this.selectedReservationForSlotUpdate && this.newSlotID) {
-      this.service.updateSlot(this.selectedReservationForSlotUpdate, this.newSlotID).subscribe(() => {
-        // Refresh available slots after updating a slot
-        this.getAvailableSlots();
-      });
+    
+  console.log("Selected Appointment ID:", this.selectedUpdateAppointment);
+  console.log("Selected Slot ID:", this.newSlotID);
+    if (this.selectedUpdateAppointment && this.newSlotID) {
+      console.log("entered "+this.selectedUpdateAppointment);
+      console.log("entered "+this.newSlotID);
+      
+      this.service.updateSlot(this.selectedUpdateAppointment, this.newSlotID.slotId).subscribe(
+        () => {
+          // Refresh reservations after updating appointment slot
+          this.getAvailableSlots();
+          console.log(this.selectedUpdateAppointment);
+          console.log(this.newSlotID);
+         
+        },
+        (error) => {
+          // Display error message
+      
+          console.error('Error updating appointment slot', error);
+        }
+      );
     }
   }
+
 
   updateDoctor() {
     if (this.selectedReservationForDoctorUpdate && this.newDoctorID) {
       this.service.updateDoctor(this.selectedReservationForDoctorUpdate, this.newDoctorID).subscribe(() => {
+
         // Refresh available slots after updating a doctor
         this.getAvailableSlots();
       });
@@ -107,6 +126,9 @@ export class PatientDashboardComponent implements OnInit {
   }
 
   private getAvailableSlots() {
-    // Implement logic to fetch and update available slots
+    this.service.getAvailableSlots().subscribe((data) => {
+      this.availableSlots = data;
+      console.log('Available Slots:', this.availableSlots);
+    });
   }
 }

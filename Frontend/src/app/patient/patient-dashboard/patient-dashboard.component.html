@@ -30,6 +30,7 @@
   <table>
     <thead>
       <tr>
+        <th>Slot</th>
         <th>Doctor Name</th>
         <th>Time (Date)</th>
         <th>Time (Hours)</th>
@@ -38,6 +39,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let reservation of myReservations">
+        <td>{{ reservation.Slot.slotID }}</td>
         <td>{{ reservation.Slot.Doctor.name }}</td>
         <td>{{ reservation.Slot.time | date:'mediumDate' }}</td>
         <td>{{ reservation.Slot.time | date:'shortTime' }}</td>
@@ -48,6 +50,36 @@
       </tr>
     </tbody>
   </table>
+</div>
+
+<div class="section">
+  <h2>Update Appointment Slot</h2>
+  <label for="updateAppointment">Select an appointment to update:</label>
+  <select id="updateAppointment" [(ngModel)]="selectedUpdateAppointment">
+    <option value="" disabled>Select an appointment to update</option>
+    <ng-container *ngFor="let appointment of myReservations">
+      <option [ngValue]="appointment.appointmentID">
+        Appointment ID: {{ appointment.appointmentID }} -  Slot: {{ appointment.slotID }} 
+      </option>
+    </ng-container>
+  </select>
+
+  <label for="newSlot">Select a new slot:</label>
+  <select id="newSlot" [(ngModel)]="newSlotID">
+    <option value="" disabled>Select a new slot</option>
+    <ng-container *ngFor="let doctor of availableSlots">
+      <ng-container *ngFor="let slot of doctor.Slots">
+        <option [ngValue]="{ slotId: slot.slotID  }">
+         Slot: {{ slot.slotID }} - Time: {{ slot.time | date:'short' }}
+        </option>
+      </ng-container>
+    </ng-container>
+  </select>
+
+  <button (click)="updateSlot()" [disabled]="!selectedUpdateAppointment || !newSlotID">Update Appointment Slot</button>
+
+
+  
 </div>
 
 
