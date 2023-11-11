@@ -19,13 +19,13 @@ const routes: Routes = [
 
   {path : 'patient/dashboard2', component: PatientDashboard2Component},
   {path :'signin' , component:SigninComponent},
-  {path:'patient/homepage/:patientId', component:PatientHomePageComponent},
+  {path:'patient/homepage/:patientId/:username', component:PatientHomePageComponent},
   { path: '', component: HomePageComponent },
   //{ path: '', redirectTo: '/signup', pathMatch: 'full' },
   {path :'signin' , component:SigninComponent},
   {path : 'slot', component: AddSlotComponent},
-  {path : 'doctor/dashboard/:doctorId', component: DashboardComponent},
-  {path : 'patient/dashboard/:patientId', component: PatientDashboardComponent},
+  {path : 'doctor/dashboard/:doctorId/:username', component: DashboardComponent},
+  {path : 'patient/dashboard/:patientId/:username', component: PatientDashboardComponent},
   
 
 

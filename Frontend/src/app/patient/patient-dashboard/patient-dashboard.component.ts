@@ -12,6 +12,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 })
 export class PatientDashboardComponent implements OnInit {
   patientId: any;
+  username:any;
   doctorsList: any[] = [];
   myReservations: any[] = [];
   availableSlots: any[] = [];
@@ -29,6 +30,7 @@ export class PatientDashboardComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.patientId = params['patientId'];
+      this.username = params['username'];
     });
 
     this.getDoctors();

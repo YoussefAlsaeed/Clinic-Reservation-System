@@ -9,6 +9,7 @@ import { DoctorService } from '../doctor.service';
 })
 export class DashboardComponent implements OnInit {
   doctorId: any;
+  username:any;
   dateInput: string = '';
   timeInput: string = '';
   slots: any[] = [];
@@ -18,6 +19,7 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.doctorId = params['doctorId'];
+      this.username = params['username'];
     });
     console.log(this.doctorId);
     this.fetchSlots();

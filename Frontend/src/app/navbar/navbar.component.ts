@@ -27,5 +27,9 @@ export class NavbarComponent implements OnInit{
       });
     
   }
+  toggleMenu() {
+    const navList = document.querySelector('.navlist');
+    navList?.classList.toggle('open');
+  }
     }
 

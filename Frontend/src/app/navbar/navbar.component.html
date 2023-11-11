@@ -9,16 +9,27 @@
 
         </ul>
     </div>
-    <div *ngIf="menuType==='doctor'"class="doctor">
+    <div *ngIf="menuType==='doctor'" class="doctor">
         <ul class="navlist">
-            <li><a href="">Logout</a></li>
+          <li>
+            <div class="notification">
+                <i class="fa fa-bell" aria-hidden="true"></i>
+            </div>
+          </li>
+          <li><a href="">Logout</a></li>
         </ul>
-    </div>
-    <div *ngIf="menuType==='patient'"class="patient">
+      </div>
+      <div *ngIf="menuType==='patient'" class="patient">
         <ul class="navlist">
-            <li><a href="">Logout</a></li>
+          <li><a href="">Logout</a></li>
         </ul>
-    </div>
+      </div>
+      <div id="menu-icon" (click)="toggleMenu()">
+        <i class="fa fa-bars" aria-hidden="true"></i>
+      </div>
+      
+      
+      
 
  <!-- <div class="bx bx-menu" id="menau-icon"></div> -->
    

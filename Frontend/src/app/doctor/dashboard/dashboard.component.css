@@ -1,34 +1,91 @@
-h1{
-    padding-top: 60px;
-}
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-  }
-
-  table, th, td {
-    border: 1px solid #ddd;
-  }
-
-  th, td {
-    padding: 10px;
-    text-align: left;
-  }
-
-  th {
-    background-color: #f2f2f2;
-  }
-
-  .slot-form {
-    margin-top: 20px;
-  }
-  .available {
-    color: rgb(21, 161, 21);
-    font-weight: bold;
-  }
+/* Add your global styles here */
+.container1 {
+  font-family: 'Arial', sans-serif;
   
-  .reserved {
-    color: red;
-    font-weight: bold;
-  } 
+  margin: 0;
+  padding: 20px;
+  padding-top: 70px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 6%;
+}
+
+h1 {
+  color: #01399F;
+  font-size: 2rem;
+  font-weight: bold;
+  
+  margin-bottom: 20px;
+  ;
+}
+
+.slot-form {
+  width: 70%;
+  margin: 20px auto;
+  padding: 15px;
+  background-color: #d0dffa;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(7, 7, 7, 0.197);
+}
+
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #000000;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 12px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  background-color: #01399F;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #1f4b9c;
+}
+
+#slot-table {
+  width: 80%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  margin-left: 10%;
+}
+
+#slot-table th, #slot-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+#slot-table th {
+  background-color: #01399F;
+  color: white;
+}
+
+.available {
+  color: #1fcb25;
+  font-weight: bold;
+}
+
+.reserved {
+  color: #d13a3a;
+  font-weight: bold;
+}
+
+p {
+  margin: 0;
+}

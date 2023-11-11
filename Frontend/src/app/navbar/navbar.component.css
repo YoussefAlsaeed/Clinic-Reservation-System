@@ -6,7 +6,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 6px 6%;
+    padding: 6px 4%;
     /* background: transparent; */
     background-color: #01399F;
     font-family: 'Montserrat', Tahoma, Geneva, Verdana, sans-serif;
@@ -16,8 +16,8 @@ header {
 .logo{
     /* margin-left: 90px; */
     text-decoration: none;
-    font-size: 30px;
-    font-weight: 700;
+    font-size: 25px;
+    font-weight: 600;
     color:white;
     
 }
@@ -46,10 +46,21 @@ header {
 
 #menu-icon{
    color: white;
-   font-size: 35px;
+   font-size: 25px;
    z-index: 10001;
    cursor: pointer;
    display: none;;
+}
+.notification{
+    color: white;
+   font-size: 25px;
+   z-index: 10001;
+   cursor: pointer;
+   display: block;
+   cursor: pointer;
+}
+.notification:hover{
+    color: rgb(74, 164, 255);
 }
 @media (max-width: 1000px){
     #menu-icon{
@@ -67,7 +78,7 @@ header {
         flex-direction: column;
         padding: 50px 20px;
         transition: all .55 ease;
-        /* display: none; */
+        display: none;
 
     }
     .navlist a{
