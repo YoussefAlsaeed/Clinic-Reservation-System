@@ -30,6 +30,8 @@ db.slot = require('./Slot.js')(sequelize,DataTypes);
 db.user = require('./User.js')(sequelize,DataTypes);
 db.patient = require('./Patient.js')(sequelize,DataTypes);
 db.appointment = require('./appointment.js')(sequelize,DataTypes);
+db.event = require('./event.js')(sequelize,DataTypes);
+
 
 
 // User one-to-one Patient
@@ -42,6 +44,10 @@ db.doctor.belongsTo(sequelize.models.User, { foreignKey: 'email'});
 
 // Doctor one-to-many Slots
 db.doctor.hasMany(sequelize.models.Slot, { foreignKey: 'doctorID' });
+
+//Doctor one-to-many Events
+db.doctor.hasMany(sequelize.models.Event, { foreignKey: 'doctorID' });
+db.event.belongsTo(sequelize.models.Doctor, { foreignKey: 'doctorID'});
 
 // Slots many-to-one Doctor
 db.slot.belongsTo(sequelize.models.Doctor, { foreignKey: 'doctorID'});

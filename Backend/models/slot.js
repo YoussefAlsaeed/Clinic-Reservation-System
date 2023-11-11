@@ -13,12 +13,9 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.DATE,
         unique: true  
       },
-
-    }, {
+    }, { 
       timestamps: false, 
     });
-  
-    
     return Slot;
   }
   

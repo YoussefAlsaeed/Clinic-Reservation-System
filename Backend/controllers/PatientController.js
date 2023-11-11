@@ -8,6 +8,6 @@ router.post('/makeAppointment', patientService.makeAppointment)
 router.get('/viewReservation/:patientID', patientService.viewReservations)
 router.put('/updateSlot',patientService.updateAppointmentSlot)
 router.put('/updateDoctor',patientService.updateAppointmentDoctor)
-router.delete('/cancelAppointment', patientService.cancelAppointment);
+router.delete('/cancelAppointment/:appointmentID', patientService.cancelAppointment);
 
 module.exports = router
