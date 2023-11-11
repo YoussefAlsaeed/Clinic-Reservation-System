@@ -36,7 +36,7 @@ export class PatientService {
     console.log(appointmentID);
     console.log(newSlotID);
 
-    const body = { appointmentID, newSlotID };
+    const body = { appointmentID, newSlotID};
     console.log('Request Body:', body);
     return this.http.put<any>(url, body);
     
@@ -45,9 +45,10 @@ export class PatientService {
   updateDoctor(appointmentID: number, newDoctorID: number): Observable<any> {
     const url = `${this.baseUrl}/updateDoctor`;
     const body = { appointmentID, newDoctorID };
-   
+    console.log('Request Body:', body);
     return this.http.put<any>(url, body);
   }
+  
   getAvailableSlots(): Observable<any[]> {
     const url = `${this.baseUrl}/getDoctors`;
     return this.http.get<any[]>(url);
