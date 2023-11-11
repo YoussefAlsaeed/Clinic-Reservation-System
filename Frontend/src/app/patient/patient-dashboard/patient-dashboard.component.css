@@ -4,16 +4,17 @@ body {
   }
   
   h1 {
-    padding-left: 20px;
-    padding-top: 70px;
+    padding-left: 7%;
+    padding-top: 6%;
     font-weight: 500;
-    color: #333;
+    color: #01399F;
   }
   .class{
     padding-left: 20px;
   }
   .section {
     margin-bottom: 20px;
+    
   }
   
   ul {
@@ -27,6 +28,7 @@ body {
   
   select, button {
     margin-top: 10px;
+    
   }
   
   button {
@@ -46,16 +48,17 @@ body {
 
 /* Styles for the entire section */
 .section {
-  width: 90%;
-  margin: 20px;
-  padding: 20px;
-  border: 1px solid #ccc;
+  width: 60%;
+  margin: 20px auto;
+  padding: 15px;
+  background-color: #d0dffa84;
   border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(7, 7, 7, 0.197);
 }
 
 /* Styles for the heading */
 .section h2 {
-  color: #333;
+  color: #1c1c1c;
   font-size: 24px;
 }
 

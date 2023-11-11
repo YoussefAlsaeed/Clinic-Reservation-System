@@ -1,27 +1,29 @@
-<header>
+<header [class.logged]="!loggedIn">
 
     <a href="#" class="logo" > Whitey Care</a>
     <div *ngIf="menuType==='default'"class="default">
         <ul class="navlist">
-            <li><a href="signup">Signup</a></li>
-            <li><a href="signin">Login</a></li>
+            
+            <li class="login"><a (click)="login()"class="login" href="signin">Login</a></li>
+            <li class="signup"><a href="signup">Signup</a></li>
 
 
         </ul>
     </div>
     <div *ngIf="menuType==='doctor'" class="doctor">
-        <ul class="navlist">
-          <li><a href="signup">Logout</a></li>
-        </ul>
-      </div>
-      <div *ngIf="menuType==='patient'" class="patient">
-        <ul class="navlist">
-          <li><a href="">Logout</a></li>
-        </ul>
-      </div>
-      <div id="menu-icon" (click)="toggleMenu()">
-        <i class="fa fa-bars" aria-hidden="true"></i>
-      </div>
+      <ul class="navlist">
+        <li class="logout"><a (click)="logout()" class="logout" href="">Logout</a></li>
+      </ul>
+    </div>
+    <div *ngIf="menuType==='patient'" class="patient">
+      <ul class="navlist">
+        <li><a href="">Logout</a></li>
+      </ul>
+    </div>
+    <div id="menu-icon" (click)="toggleMenu()">
+      <i class="fa fa-bars" aria-hidden="true"></i>
+    </div>
+    
       
       
       

@@ -8,10 +8,13 @@ header {
     justify-content: space-between;
     padding: 4px 4%;
     /* background: transparent; */
-    background-color: #01399F;
+    background-color: rgb(1, 56, 159);
     font-family: 'Montserrat', Tahoma, Geneva, Verdana, sans-serif;
   
     
+}
+header.logged{
+    background-color: #01049f00;
 }
 .logo{
     /* margin-left: 90px; */
@@ -26,19 +29,68 @@ header {
     padding-top: 10px;
     
 }
+.navlist li{
+    cursor: pointer;
+  border: 0;
+  border-radius: 50px;
+  font-weight: 600;
+  margin-right: 20px;
+  padding: 10px 20px;
+ 
+  transition: 0.4s;
+}
+.navlist li.logout{
+    color: transparent;
+    margin-right: 0;
+    padding:0;
+    background-color: transparent;
+    border-radius: 0px;
+    
+}
+
+.navlist li.signup{
+    /* color: rgb(0, 0, 0); */
+    background-color:rgba(45, 45, 248, 0.566);
+    box-shadow: 0 0 20px rgba(3, 3, 3, 0.2);
+    /* border:1px solid rgb(255, 255, 255); */
+    
+}
+.navlist li.signup:hover {
+    box-shadow: 0 0 20px rgba(104, 85, 224, 0.6);
+    background-color: rgba(104, 85, 224, 1);
+    transition:all .55s ease;
+  }
+
+.navlist li.login{
+    padding: 10px 25px;
+    background-color:rgba(0, 0, 0, 0.411);
+    box-shadow: 0 0 20px rgba(3, 3, 3, 0.2);
+    /* border:1px solid rgb(255, 255, 255); */
+    
+}
+.navlist li.login:hover {
+    box-shadow: 0 0 20px rgba(70, 70, 70, 0.6);
+    background-color: rgba(75, 75, 75, 0.589);
+    transition:all .55s ease;
+  }
+  .navlist .logout:hover {
+    border-bottom: 2px solid white;
+  }
+  
+.navlist a.login{
+    color: rgb(255, 248, 248);
+}
 
 .navlist a{
     text-decoration: none;
     color:white;
-    margin-left: 60px;
-    font-size: 15px;
+    /* margin-left: 60px; */
+    font-size: 16px;
     font-weight: 600;
     border-bottom: 2px transparent;
     transition:all .55s ease;
 }
-.navlist a:hover{
-    border-bottom: 2px solid white;
-}
+
 
 .navlist li{
     color: transparent;

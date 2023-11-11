@@ -26,7 +26,6 @@ export class DashboardComponent implements OnInit {
     });
     console.log(this.doctorId);
     this.fetchSlots();
-    this.fetchNotifications();
   }
 
   fetchSlots() {

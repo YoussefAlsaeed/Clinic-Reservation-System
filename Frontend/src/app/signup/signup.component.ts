@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
-
-
 
 @Component({
   selector: 'app-signup',
@@ -16,7 +15,7 @@ export class SignupComponent {
     type: '',
   };
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   onSubmit() {
     const userData = {
@@ -31,13 +30,12 @@ export class SignupComponent {
     this.authService.signup(userData).subscribe(
       (response) => {
         console.log('Signup successful', response);
-        alert('Signup successful'); // Display success message
-        
+        alert('Signup successful'); 
+        this.router.navigate(['/signin']);
       },
       (error) => {
         console.error('Signup failed', error);
-        alert('Signup failed. Please try again.'); // Display error message
-        
+        alert('Signup failed. Please try again.'); 
       }
     );
   }

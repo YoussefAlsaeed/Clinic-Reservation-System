@@ -6,22 +6,23 @@
     </td>
     <td>
       <div class="notification">
-        <button class="s" (click)="clickNotification()"><i class="fa fa-bell" aria-hidden="true"></i></button>
+        <button class="s" (click)="clickNotification()"[class.checked]="popup"><i class="fa fa-bell" aria-hidden="true"></i></button>
         
       </div>
       
     </td>
   </tr>
 </table>
+
+
+</div>
 <div *ngIf="popup" id="notificationPopup" class="popup">
   <ul id="navlist">
     <li *ngFor="let notification of notifications">
-      <strong>Patient ID:</strong> {{ notification.patientId }} -
-      <strong>Operation:</strong> {{ notification.operation }}
+      <strong>{{ notification.operation }}</strong> 
+      by patient with ID : {{ notification.patientId }}
     </li>
   </ul>
-</div>
-
 </div>
 
 

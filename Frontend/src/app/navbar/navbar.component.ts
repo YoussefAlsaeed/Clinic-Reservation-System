@@ -9,6 +9,7 @@ import { NotificationsService } from '../notifications.service';
 })
 export class NavbarComponent implements OnInit{
     menuType:String ='default';
+    loggedIn:boolean=false;
 
     constructor(private route:Router){}
 
@@ -20,11 +21,14 @@ export class NavbarComponent implements OnInit{
           if (val.url.includes('doctor')) {
             console.warn('herree');
             this.menuType = 'doctor';
+            this.loggedIn = true;
           } 
           else if(val.url.includes('patient')){
             console.warn('noo');
             this.menuType='patient';
+            this.loggedIn=true;
           }
+          console.log(this.loggedIn)
         }
       });
       
@@ -33,6 +37,14 @@ export class NavbarComponent implements OnInit{
   toggleMenu() {
     const navList = document.querySelector('.navlist');
     navList?.classList.toggle('open');
+  }
+  login(){
+    this.loggedIn=true;
+    console.log(this.loggedIn);
+
+  }
+  logout(){
+    this.loggedIn=false;
   }
 
   
