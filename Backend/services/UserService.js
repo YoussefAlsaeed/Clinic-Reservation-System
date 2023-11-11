@@ -52,13 +52,13 @@ const signIn = async (req, res) => {
     let username = '';
     let ID = null;
 
-    if (userType === 'doctor') {
+    if (userType === 'DOCTOR') {
       const doctor = await Doctor.findOne({ where: { email: user.email } });
       if (doctor) {
         ID = doctor.doctorID;
         username = doctor.name;
       }
-    } else if (userType === 'patient') {
+    } else if (userType === 'PATIENT') {
       const patient = await Patient.findOne({ where: { email: user.email } });
       if (patient) {
         ID = patient.patientID;
