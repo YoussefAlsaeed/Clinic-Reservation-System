@@ -1,8 +1,34 @@
-<div class="container1"> 
-  <h1>Hello Dr. {{ username }}</h1>
-  <div class="notification">
-    <i class="fa fa-bell" aria-hidden="true"></i>
+<div class ="containerheader">
+  <table>
+  <tr>
+    <td>
+      <h3>Dr. {{ username }}</h3>
+    </td>
+    <td>
+      <div class="notification">
+        <button class="s" (click)="clickNotification()"><i class="fa fa-bell" aria-hidden="true"></i></button>
+        
+      </div>
+      
+    </td>
+  </tr>
+</table>
+<div *ngIf="popup" id="notificationPopup" class="popup">
+  <ul id="navlist">
+    <li *ngFor="let notification of notifications">
+      <strong>Patient ID:</strong> {{ notification.patientId }} -
+      <strong>Operation:</strong> {{ notification.operation }}
+    </li>
+  </ul>
 </div>
+
+</div>
+
+
+
+<div class="container1"> 
+  
+  
   <div class="slot-form">
     <label for="date">Date:</label>
     <input type="date" id="date" [(ngModel)]="dateInput">

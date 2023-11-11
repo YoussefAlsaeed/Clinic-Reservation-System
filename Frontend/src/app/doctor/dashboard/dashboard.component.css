@@ -1,34 +1,69 @@
 /* Add your global styles here */
 .container1 {
   font-family: 'Arial', sans-serif;
-  
   margin: 0;
   padding: 20px;
-  padding-top: 70px;
+  padding-top: 50px; 
   display: flex;
   flex-direction: column;
   margin-left: 6%;
 }
+.containerheader{
+  z-index: 1000;
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  margin-left: 6%;
+  
+  background-color: transparent;
+  position: fixed;
+     width: 100%; 
+    /* background: transparent; */
+    font-family: 'Montserrat', Tahoma, Geneva, Verdana, sans-serif;
+}
 .notification{
-  color: #01399F;
- font-size: 25px;
- z-index: 10001;
+  padding-bottom:7px ;
+  padding-left: 60%;
+ color: #ffffff;
+ font-size: 20px;
  cursor: pointer;
  display: block;
  cursor: pointer;
- margin-left: 90%;
+ /* margin-left: 90%; */
 }
 .notification:hover{
   color: rgb(74, 164, 255);
 }
+#navlist {
+  position: absolute;
+  top: 54px;
+  right: 0;
+  background: #ffffffcd;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 25%;
+  padding-right: 80px;
+  margin-right: 110px;
+  transition: all 0.55s ease;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.636); 
+}
 
-h1 {
-  color: #01399F;
-  font-size: 2rem;
+
+h1{
+  color: #ffffff;
+  font-size: 1rem;
   font-weight: bold;
-  
   margin-bottom: 20px;
-  ;
+}
+h3 {
+  color: #ffffff;
+  padding-left: 80%;
+  padding-top: 10px;
+  font-size: larger;
+  
 }
 
 .slot-form {
@@ -75,10 +110,11 @@ button:hover {
   border-collapse: collapse;
   margin-top: 20px;
   margin-left: 10%;
+  font-weight: 300px;
 }
 
 #slot-table th, #slot-table td {
-  border: 1px solid #ddd;
+  /* border: 1px solid #ddd; */
   padding: 8px;
   text-align: left;
 }

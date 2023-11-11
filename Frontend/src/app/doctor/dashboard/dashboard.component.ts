@@ -15,6 +15,7 @@ export class DashboardComponent implements OnInit {
   timeInput: string = '';
   slots: any[] = [];
   notifications: any[] = [];
+  popup:boolean = false;
 
   constructor(private service: DoctorService, private route: ActivatedRoute,private notificationService: NotificationsService) {}
 
@@ -54,9 +55,24 @@ export class DashboardComponent implements OnInit {
       alert('Please enter date and time.');
     }
   }
+  clickNotification()
+  {
+      if(this.popup === true)
+      {
+        this.popup=false;
+      }
+      else
+      {
+        this.popup=true;
+        this.fetchNotifications();
+
+      } 
+  }
   fetchNotifications(): void {
+    this.popup=true;
     this.notificationService.getEventsForDoctor(1).subscribe(
       (notifications) => {
+        
         this.notifications = notifications;
         console.log(this.notifications);
         // You can add additional logic to check unread messages and update the icon
@@ -66,5 +82,9 @@ export class DashboardComponent implements OnInit {
         // Handle the error
       }
     );
+  }
+  closePopup() {
+    // Set popup to false to hide it
+    this.popup = false;
   }
 }
