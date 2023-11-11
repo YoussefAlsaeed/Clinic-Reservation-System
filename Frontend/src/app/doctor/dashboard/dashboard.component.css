@@ -1,4 +1,4 @@
-/* Add your global styles here */
+
 .container1 {
   font-family: 'Arial', sans-serif;
   margin: 0;
@@ -19,7 +19,6 @@
   background-color: transparent;
   position: fixed;
      width: 100%; 
-    /* background: transparent; */
     font-family: 'Montserrat', Tahoma, Geneva, Verdana, sans-serif;
 }
 .notification{

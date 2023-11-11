@@ -21,7 +21,7 @@ body {
   
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
-  box-shadow: 2px 3px 2px 3px rgba(0, 0, 0, 0.2)
+  box-shadow: 1px 3px 0.5px 1px rgba(0, 0, 0, 0.2)
   
 }
 
@@ -32,8 +32,8 @@ body {
   background-color: #01399F;
   text-align: center;
   width:30px;
-  height:468.8px;
-  box-shadow: 1px 2.5px 2px 3px rgba(0, 0, 0, 0.2);
+  height:429.2px;
+  box-shadow: 1px 2px  3px rgba(0, 0, 0, 0.2);
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
   
@@ -41,11 +41,12 @@ body {
 }
 .image{
   padding-top: 60px;
+  
 }
 .whole{
   justify-content: center;
   align-items: center;
-  padding-left: 200px;
+  padding-left: 130px;
 }
 .container {
  
@@ -64,26 +65,25 @@ body {
   background-position: center;*/
 }
 
-/* Add additional styling as needed */
 
 .signin-heading {
-  font-size: 23px; /* Adjust the font size as needed */
-  font-weight: bold; /* Optionally, make it bold */
-  font-family: 'YourFontName', Monospace; /* Change the font family if needed */
+  font-size: 23px; 
+  font-weight: bold; 
+  font-family:  Monospace; 
   color:  white;
   padding-top: 20px;
  
-  /* Other styles as per your preference */
+  
 }
 .signin-heading2 {
   padding-top: 60px;
   font-size: 28px; /* Adjust the font size as needed */
   font-weight: bold; /* Optionally, make it bold */
-  font-family: 'YourFontName', Monospace; /* Change the font family if needed */
+  font-family: 'YourFontName', Monospace; 
   color:#01399F ;
   text-align: center;
  
-  /* Other styles as per your preference */
+  
 }
 
 

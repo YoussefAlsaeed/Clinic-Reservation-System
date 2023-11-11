@@ -12,8 +12,8 @@ body {
 }
 
 .signup-form {
-  flex: 1; /* Takes up 50% of the width (or adjust as needed) */
-  padding: 20px; /* Add padding for spacing */
+  flex: 1; 
+  padding: 20px; 
  
   border-top: 20px;
   width:700px;
@@ -21,19 +21,19 @@ body {
   
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
-  box-shadow: 2px 4px 3px 3px rgba(0, 0, 0, 0.2)
+  box-shadow: 2px 4px 3px 1px rgba(0, 0, 0, 0.2)
   
 }
 
 
 .signup-image {
-  flex: 1; /* Takes up 50% of the width (or adjust as needed) */
+  flex: 1; 
   border-top: 20px;
   background-color: #01399F;
   text-align: center;
   width:30px;
-  height:468.8px;
-  box-shadow: 1px 2.5px 2px 3px rgba(0, 0, 0, 0.2);
+  height:426.2px;
+  box-shadow: 1px 2.5px px 3px rgba(0, 0, 0, 0.2);
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
   
@@ -64,26 +64,25 @@ body {
   background-position: center;*/
 }
 
-/* Add additional styling as needed */
+
 
 .signup-heading {
-  font-size: 23px; /* Adjust the font size as needed */
-  font-weight: bold; /* Optionally, make it bold */
-  font-family: 'YourFontName', Monospace; /* Change the font family if needed */
+  font-size: 23px; 
+  font-weight: bold; 
+  font-family: 'YourFontName', Monospace; 
   color:  white;
   padding-top: 20px;
  
-  /* Other styles as per your preference */
+
 }
 .signup-heading2 {
   padding-top: 22px;
-  font-size: 28px; /* Adjust the font size as needed */
-  font-weight: bold; /* Optionally, make it bold */
-  font-family: 'YourFontName', Monospace; /* Change the font family if needed */
+  font-size: 28px; 
+  font-weight: bold;
+  font-family:  Monospace; 
   color:#01399F ;
   text-align: center;
- 
-  /* Other styles as per your preference */
+
 }
 
 

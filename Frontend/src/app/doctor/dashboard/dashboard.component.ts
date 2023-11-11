@@ -48,7 +48,7 @@ export class DashboardComponent implements OnInit {
         },
         (error) => {
           console.error('Failed to add slot', error);
-          // Handle errors, e.g., show an error message to the user
+          //show an error message to the user
         }
       );
     } else {
