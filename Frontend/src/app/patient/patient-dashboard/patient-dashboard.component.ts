@@ -24,7 +24,6 @@ export class PatientDashboardComponent implements OnInit {
   newSlotID:any;
   newDoctorID: any;
   selectedAppointment: any;
-  // Add this property to your component
   showUpdateFormFlag: boolean = false;
 
   constructor(private service: PatientService, private route: ActivatedRoute,public dialog: MatDialog) {}
@@ -41,14 +40,14 @@ export class PatientDashboardComponent implements OnInit {
   }
   
 
-// Modify your showUpdateForm method
+
 showUpdateForm(reservation:any) {
   this.selectedUpdateAppointment = reservation.appointmentID;
   this.showUpdateFormFlag = true;
 }
   storeID(event :any) {
-    //this.selectedAppointment =  event.target.value.slotId;;
-    console.log("asjkhsjhsa "+this.selectedAppointment.slotId);
+    
+    console.log("slot"+this.selectedAppointment.slotId);
   }
   getDoctors() {
     this.service.getDoctors().subscribe((data) => {
@@ -60,7 +59,6 @@ showUpdateForm(reservation:any) {
     if (this.selectedAppointment) {
       this.service.makeAppointment(this.patientId, this.selectedAppointment.slotId).subscribe(() => {
         // Refresh reservations after making an appointment
-        console.log("asjkhsjhsa hsbhsa");
         this.getMyReservations();
         this.getDoctors()
       });
@@ -117,13 +115,11 @@ showUpdateForm(reservation:any) {
         },
         (error) => {
           // Display error message
-      
-          console.error('Error updating appointment slot', error);
+         console.error('Error updating appointment slot', error);
           this.getMyReservations();
         }
       );
     }
-  // After updating, you might want to hide the update form
   this.showUpdateFormFlag = false;
   }
 
