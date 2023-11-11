@@ -24,102 +24,89 @@
 
   <button (click)="makeAppointment()">Make Appointment</button>
 </div>
+  <div class="class">
+  <h2>My Reservations</h2></div>
+  <div class="forTable">
+    <table>
+      <thead>
+        <tr>
+          <th>Slot</th>
+          <th>Doctor Name</th>
+          <th>Time (Date)</th>
+          <th>Time (Hours)</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let reservation of myReservations">
+          <td>{{ reservation.Slot.slotID }}</td>
+          <td>{{ reservation.Slot.Doctor.name }}</td>
+          <td>{{ reservation.Slot.time | date:'mediumDate':'UTC' }}</td>
+          <td>{{ reservation.Slot.time | date:'shortTime':'UTC' }}</td>
+          <td>
+            <button (click)="showUpdateForm(reservation)"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+            <button style="background-color: #CC0505;"  (click)="cancelAppointment(reservation.appointmentID)"><i class="fa fa-times" aria-hidden="true"></i></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <div class="section" *ngIf="showUpdateFormFlag">
+    <h2>Update Appointment</h2>
+    <label for="updateAppointment">Select an appointment to update:</label>
+    <select id="updateAppointment" [(ngModel)]="selectedUpdateAppointment">
+      <option value="" disabled>Select an appointment to update</option>
+      <ng-container *ngFor="let appointment of myReservations">
+        <option [ngValue]="appointment.appointmentID">
+          Appointment ID: {{ appointment.appointmentID }} -  Slot: {{ appointment.slotID }} 
+        </option>
+      </ng-container>
+    </select>
+  
+    <label for="newSlot">Select a new slot:</label>
+    <select id="newSlot" [(ngModel)]="newSlotID">
+      <option value="" disabled>Select a new slot</option>
+      <ng-container *ngFor="let doctor of availableSlots">
+        <ng-container *ngFor="let slot of doctor.Slots">
+          <option [ngValue]="{ slotId: slot.slotID  }">
+            Doctor:{{ doctor.name  }} - Time: {{ slot.time | date:'short' :'UTC' }}
+          </option>
+        </ng-container>
+      </ng-container>
+    </select>
+  
+    <button (click)="updateSlot()" [disabled]="!selectedUpdateAppointment || !newSlotID">Update Appointment Slot</button>
+  </div>
+  
 
-  <h2>My Reservations</h2>
-<div class="forTable">
-  <table>
-    <thead>
-      <tr>
-        <th>Slot</th>
-        <th>Doctor Name</th>
-        <th>Time (Date)</th>
-        <th>Time (Hours)</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let reservation of myReservations">
-        <td>{{ reservation.Slot.slotID }}</td>
-        <td>{{ reservation.Slot.Doctor.name }}</td>
-        <td>{{ reservation.Slot.time | date:'mediumDate' }}</td>
-        <td>{{ reservation.Slot.time | date:'shortTime' }}</td>
-        <td>
-          <button >Edit</button>
-          <button (click)="cancelAppointment(reservation.appointmentID)">Cancel</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
 
-<div class="section">
-  <h2>Update Appointment Slot</h2>
+
+<!-- <div class="section">
+  <h2>Update Appointment Doctor</h2>
+  
   <label for="updateAppointment">Select an appointment to update:</label>
   <select id="updateAppointment" [(ngModel)]="selectedUpdateAppointment">
     <option value="" disabled>Select an appointment to update</option>
     <ng-container *ngFor="let appointment of myReservations">
       <option [ngValue]="appointment.appointmentID">
         Appointment ID: {{ appointment.appointmentID }} -  Slot: {{ appointment.slotID }} 
-      </option>
-    </ng-container>
+      </ng-container>
+
   </select>
 
-  <label for="newSlot">Select a new slot:</label>
-  <select id="newSlot" [(ngModel)]="newSlotID">
-    <option value="" disabled>Select a new slot</option>
+  <label for="newDoctor">Select a new doctor:</label>
+  <select id="newDoctor" [(ngModel)]="newDoctorID">
+    <option value="" disabled>Select a new doctor</option>
     <ng-container *ngFor="let doctor of availableSlots">
       <ng-container *ngFor="let slot of doctor.Slots">
-        <option [ngValue]="{ slotId: slot.slotID  }">
-         Slot: {{ slot.slotID }} - Time: {{ slot.time | date:'short' }}
-        </option>
-      </ng-container>
-    </ng-container>
+        <option [ngValue]="{ doctorId: doctor.doctorID }">
+    Doctor  {{ doctor.name }}
+  </ng-container>
+</ng-container>
   </select>
 
-  <button (click)="updateSlot()" [disabled]="!selectedUpdateAppointment || !newSlotID">Update Appointment Slot</button>
-
-
-  
-</div>
-
-
-<!-- <div class="section">
-  <h2>Cancel Appointment</h2>
-  <select [(ngModel)]="selectedReservation" required>
-    <option value="" disabled>Select a reservation to cancel</option>
-    <option *ngFor="let reservation of myReservations" [value]="reservation.id">
-      {{ reservation.slot.time }} - {{ reservation.doctor.name }}
-    </option>
-  </select>
-  <button (click)="cancelAppointment(selectedReservation)">Cancel Appointment</button>
-</div>
-
-<div class="section">
-  <h2>Update Slot</h2>
-  <select [(ngModel)]="selectedReservationForSlotUpdate" required>
-    <option value="" disabled>Select a reservation to update</option>
-    <option *ngFor="let reservation of myReservations" [value]="reservation.id">
-      {{ reservation.slot.time }} - {{ reservation.doctor.name }}
-    </option>
-  </select>
-  <select [(ngModel)]="newSlotID" required>
-    <option value="" disabled>Select a new slot</option>
-    <option *ngFor="let slot of availableSlots" [value]="slot.id">{{ slot.time }}</option>
-  </select>
-  <button (click)="updateSlot()">Update Slot</button>
-</div>
-
-<div class="section">
-  <h2>Update Doctor</h2>
-  <select [(ngModel)]="selectedReservationForDoctorUpdate" required>
-    <option value="" disabled>Select a reservation to update</option>
-    <option *ngFor="let reservation of myReservations" [value]="reservation.id">
-      {{ reservation.slot.time }} - {{ reservation.doctor.name }}
-    </option>
-  </select>
-  <select [(ngModel)]="newDoctorID" required>
-    <option value="" disabled>Select a new doctor</option>
-    <option *ngFor="let doctor of doctorsList" [value]="doctor.id">{{ doctor.name }} - {{ doctor.specialty }}</option>
-  </select>
-  <button (click)="updateDoctor()">Update Doctor</button>
+  <button (click)="updateDoctor()" [disabled]="!selectedUpdateAppointment || !newDoctorID">
+    Update Appointment Doctor
+  </button>
 </div> -->

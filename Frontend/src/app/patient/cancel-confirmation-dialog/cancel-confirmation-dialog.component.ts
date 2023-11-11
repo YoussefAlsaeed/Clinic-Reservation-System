@@ -10,6 +10,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 export class CancelConfirmationDialogComponent {
   constructor(public dialogRef: MatDialogRef<CancelConfirmationDialogComponent>) {}
 
+  
   onConfirm(): void {
     this.dialogRef.close(true); // Emit true when confirmed
   }

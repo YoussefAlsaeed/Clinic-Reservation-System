@@ -22,9 +22,10 @@ export class PatientDashboardComponent implements OnInit {
   selectedReservationForSlotUpdate: number = 0;
   selectedReservationForDoctorUpdate: number = 0;
   newSlotID:any;
-  newDoctorID: number = 0;
+  newDoctorID: any;
   selectedAppointment: any;
-  
+  // Add this property to your component
+  showUpdateFormFlag: boolean = false;
 
   constructor(private service: PatientService, private route: ActivatedRoute,public dialog: MatDialog) {}
 
@@ -38,6 +39,13 @@ export class PatientDashboardComponent implements OnInit {
     this.getMyReservations();
     this.getAvailableSlots();
   }
+  
+
+// Modify your showUpdateForm method
+showUpdateForm(reservation:any) {
+  this.selectedUpdateAppointment = reservation.appointmentID;
+  this.showUpdateFormFlag = true;
+}
   storeID(event :any) {
     //this.selectedAppointment =  event.target.value.slotId;;
     console.log("asjkhsjhsa "+this.selectedAppointment.slotId);
@@ -90,6 +98,7 @@ export class PatientDashboardComponent implements OnInit {
   }
 
   updateSlot() {
+
     
   console.log("Selected Appointment ID:", this.selectedUpdateAppointment);
   console.log("Selected Slot ID:", this.newSlotID);
@@ -103,22 +112,29 @@ export class PatientDashboardComponent implements OnInit {
           this.getAvailableSlots();
           console.log(this.selectedUpdateAppointment);
           console.log(this.newSlotID);
+          this.getMyReservations();
          
         },
         (error) => {
           // Display error message
       
           console.error('Error updating appointment slot', error);
+          this.getMyReservations();
         }
       );
     }
+  // After updating, you might want to hide the update form
+  this.showUpdateFormFlag = false;
   }
 
 
   updateDoctor() {
-    if (this.selectedReservationForDoctorUpdate && this.newDoctorID) {
-      this.service.updateDoctor(this.selectedReservationForDoctorUpdate, this.newDoctorID).subscribe(() => {
-
+    console.log("out"+this.selectedUpdateAppointment);
+          console.log("out"+this.newDoctorID);
+    if (this.selectedUpdateAppointment && this.newDoctorID) {
+      this.service.updateDoctor(this.selectedUpdateAppointment, this.newDoctorID.doctorId).subscribe(() => {
+        console.log(this.selectedUpdateAppointment);
+        console.log(this.newDoctorID);
         // Refresh available slots after updating a doctor
         this.getAvailableSlots();
       });
