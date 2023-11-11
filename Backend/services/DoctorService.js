@@ -1,5 +1,7 @@
 const db = require('../models')
 
+const consumeEvents = require('./KafkaConsumer')
+
 const User = db.user
 const Doctor = db.doctor
 const Slot = db.slot
@@ -65,7 +67,29 @@ const getSlotsForDoctor = async (req, res) => {
   }
 };
 
+const getEventsForDoctor = async (req, res) => {
+  try {
+    const doctorID = req.params.doctorID;
+
+    const doctor = await Doctor.findByPk(doctorID);
+
+    if (!doctor) {
+      res.status(404).json({ error: "Doctor not found." });
+      return;
+    }
+
+    const events = await doctor.getEvents(); 
+
+    res.status(200).json(events);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "An error occurred while fetching the events." });
+  }
+};
+
+
 module.exports = {
     createSlot,
-    getSlotsForDoctor
+    getSlotsForDoctor,
+    getEventsForDoctor
 }
