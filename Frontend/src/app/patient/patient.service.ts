@@ -33,13 +33,24 @@ export class PatientService {
 
   updateSlot(appointmentID: number, newSlotID: number): Observable<any> {
     const url = `${this.baseUrl}/updateSlot`;
+    console.log(appointmentID);
+    console.log(newSlotID);
+
     const body = { appointmentID, newSlotID };
-    return this.http.post<any>(url, body);
+    console.log('Request Body:', body);
+    return this.http.put<any>(url, body);
+    
   }
 
   updateDoctor(appointmentID: number, newDoctorID: number): Observable<any> {
     const url = `${this.baseUrl}/updateDoctor`;
     const body = { appointmentID, newDoctorID };
-    return this.http.post<any>(url, body);
+   
+    return this.http.put<any>(url, body);
   }
+  getAvailableSlots(): Observable<any[]> {
+    const url = `${this.baseUrl}/getDoctors`;
+    return this.http.get<any[]>(url);
+  }
+
 }
