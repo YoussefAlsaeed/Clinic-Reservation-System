@@ -56,7 +56,7 @@ const getSlotsForDoctor = async (req, res) => {
       return;
     }
 
-    // Use Sequelize association to get slots for the specified doctor
+    //Get slots for the specified doctor
     const slots = await doctor.getSlots();
 
     // Return the slots in the response
