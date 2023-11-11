@@ -249,6 +249,14 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Get Events For Doctor",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
 		}
 	]
 }
