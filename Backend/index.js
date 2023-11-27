@@ -8,10 +8,9 @@ app.use(express.json());
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
-app.use(cors({ origin: 'http://localhost:4200' }));
+app.use(cors());
 
 
-// Import your controller files
 const userController = require('./controllers/UserController');
 const doctorController = require('./controllers/DoctorController');
 const patientController = require('./controllers/PatientController');

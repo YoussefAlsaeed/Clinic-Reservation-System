@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import{ environment} from '../environments/environment'
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  private baseUrl = 'http://localhost:3000'; // Replace with the actual base URL of your backend API
-
+  private baseUrl = environment.baseUrl; 
   constructor(private http: HttpClient) {}
 
   signup(data: any) {
