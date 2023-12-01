@@ -1,0 +1,5 @@
+Run in docker by opening "containerize.bat"
+
+or
+
+Run "docker compose up -d" in the terminal

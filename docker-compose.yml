@@ -1,0 +1,101 @@
+version: '3.8'
+
+services:
+  zookeeper-cntr:
+    image: zookeeper:img
+    build:
+      context: .
+      dockerfile: Dockerfile.zookeeper
+    networks:
+      - app-kafka
+    ports:
+      - "2181:2181"
+    container_name: zookeeper-cntr      
+
+  kafka-cntr:
+    image: kafka:img
+    build:
+      context: .
+      dockerfile: Dockerfile.kafka
+    networks:
+      - app-kafka
+    ports:
+      - "9092:9092"
+      - "29092:29092"
+    depends_on:
+      - zookeeper-cntr
+    container_name: kafka-cntr
+    
+  init-kafka:
+    image: confluentinc/cp-kafka:7.2.0
+    depends_on:
+      - kafka-cntr
+    entrypoint: [ '/bin/sh', '-c' ]
+    networks:
+      - app-kafka
+    command: |
+      "
+      # blocks until kafka is reachable
+      kafka-topics --bootstrap-server kafka-cntr:9092 --list
+
+      echo -e 'Creating kafka topics'
+      kafka-topics --create --bootstrap-server kafka-cntr:9092 --topic __consumer_offsets --partitions 50 --replication-factor 1
+      echo -e 'Successfully created the following topics:'
+      kafka-topics --bootstrap-server kafka-cntr:9092 --list
+      "    
+      
+  mysqldb:
+    image: mysqldb:v1
+    build:
+      context: .
+      dockerfile: Dockerfile
+    networks:
+      - app-api
+    ports:
+      - "3307:3306"
+    volumes:
+      - db-vol:/var/lib/mysql
+    environment:
+      MYSQL_USERNAME: root
+      MYSQL_PASSWORD: Passw@rd
+    container_name: mysqldb      
+
+  frontend-cntr:
+    image: frontend:v1
+    build:
+      context: ./Frontend
+      dockerfile: Dockerfile
+    networks:
+      - app-ui
+    ports:
+      - "4200:4200"
+    container_name: frontend-cntr
+  
+
+  backend-cntr:
+    image: backend:v1  
+    build:
+      context: ./Backend
+      dockerfile: Dockerfile
+    networks:
+      - app-api
+      - app-kafka
+      - app-ui
+    ports:
+      - "3000:3000"
+    environment:
+      MYSQL_USERNAME: root
+      MYSQL_PASSWORD: Passw@rd  
+    depends_on:
+      - kafka-cntr
+      - mysqldb
+      - init-kafka  
+    container_name: backend-cntr      
+
+networks:
+  app-api:
+  app-ui:
+  app-kafka:
+
+volumes:
+  db-vol:
