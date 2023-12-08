@@ -69,7 +69,7 @@ export class DashboardComponent implements OnInit {
   }
   fetchNotifications(): void {
     this.popup=true;
-    this.notificationService.getEventsForDoctor(1).subscribe(
+    this.notificationService.getEventsForDoctor(this.doctorId).subscribe(
       (notifications) => {
         
         this.notifications = notifications;
