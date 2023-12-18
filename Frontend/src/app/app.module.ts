@@ -19,6 +19,8 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { DoctorModule } from './doctor/doctor.module';
 import { PatientModule } from './patient/patient.module';
+import { ConfigService } from './config.service';
+
 
 
 @NgModule({
@@ -45,7 +47,7 @@ import { PatientModule } from './patient/patient.module';
    
     MatFormFieldModule, MatInputModule, MatDatepickerModule, MatNativeDateModule,
   ],
-  //providers: [SlotService],
+  providers: [ConfigService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

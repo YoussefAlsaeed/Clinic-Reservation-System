@@ -24,6 +24,6 @@ app.use('/patients', patientController);
 
 
 
-app.listen(3000, () => {
-    console.log("server running");
+app.listen(process.env.SERVER_PORT, () => {
+    console.log("server running on port " ,process.env.SERVER_PORT );
 })
