@@ -3,6 +3,6 @@ FROM confluentinc/cp-kafka:7.2.0
 WORKDIR /app
 
 COPY ./init-script.sh ./init-script.sh
-RUN /bin/sh -c 'chmod +x ./init-script.sh'
+# RUN /bin/sh -c 'chmod +x ./init-script.sh'
 
 CMD ["/bin/sh", "-c", "./init-script.sh"]
