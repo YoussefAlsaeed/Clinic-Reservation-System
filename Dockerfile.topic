@@ -1,7 +1,6 @@
 FROM confluentinc/cp-kafka:7.2.0
 
-COPY init-script.sh /tmp/init-script.sh
-WORKDIR /tmp
-RUN chmod -R 777 /tmp
+COPY ./init-script.sh ./init-script.sh
+RUN chmod +x ./init-script.sh
 
-CMD ["/bin/sh", "-c", "/tmp/init-script.sh"]
+CMD ["/bin/sh", "-c", "./init-script.sh"]
