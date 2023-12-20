@@ -2,15 +2,20 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import{ environment} from '../../environments/environment'
+import * as configData from '../../config.json';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class PatientService {
-  private baseUrl =  environment.baseUrl+'/patients'; 
 
-  constructor(private http: HttpClient) {}
+  private baseUrl: any;
+
+  constructor(private http: HttpClient) {
+    this.baseUrl = (configData as any).default.API_URL+'/patients';
+    console.log('API URL:', this.baseUrl);
+  }
 
   getDoctors(): Observable<any[]> {
     const url = `${this.baseUrl}/getDoctors`;

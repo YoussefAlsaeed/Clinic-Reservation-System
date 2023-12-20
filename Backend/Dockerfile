@@ -3,5 +3,4 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install
 COPY . .
-# EXPOSE 3000
-CMD ["sh", "-c", "node createDB.js && node index.js"]
+CMD ["sh", "-c", "printenv && node createDB.js && node index.js"]
