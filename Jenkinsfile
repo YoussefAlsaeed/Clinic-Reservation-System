@@ -4,11 +4,13 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                checkout scmGit(branches: [[name: '*/dockerize']], extensions: [], userRemoteConfigs: [[credentialsId: 'git-token', url: 'https://github.com/YoussefAlsaeed/Clinic-Reservation-System.git']])
-                sh '''
+                 sh '''
+                    git config --global http.version HTTP/1.1
                     git config --global core.compression 0
                     git config --global http.postBuffer 524288000
                 '''
+                checkout scmGit(branches: [[name: '*/dockerize']], extensions: [], userRemoteConfigs: [[credentialsId: 'git-token', url: 'https://github.com/YoussefAlsaeed/Clinic-Reservation-System.git']])
+
             }
         }
         stage('Build db docker image'){
