@@ -6,7 +6,7 @@ const Doctor = db.doctor
 
 const kafka = new Kafka({
   clientId: 'reservation',
-  brokers: ['localhost:9092'],
+  brokers: [process.env.KAFKA_URL],
 });
 
 let consumer;

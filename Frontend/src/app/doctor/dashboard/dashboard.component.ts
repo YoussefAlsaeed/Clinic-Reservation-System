@@ -74,7 +74,6 @@ export class DashboardComponent implements OnInit {
         
         this.notifications = notifications;
         console.log(this.notifications);
-        // You can add additional logic to check unread messages and update the icon
       },
       (error) => {
         console.error('Error fetching notifications:', error);

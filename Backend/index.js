@@ -8,10 +8,9 @@ app.use(express.json());
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
-app.use(cors({ origin: 'http://localhost:4200' }));
+app.use(cors());
 
 
-// Import your controller files
 const userController = require('./controllers/UserController');
 const doctorController = require('./controllers/DoctorController');
 const patientController = require('./controllers/PatientController');
@@ -25,6 +24,6 @@ app.use('/patients', patientController);
 
 
 
-app.listen(3000, () => {
-    console.log("server running");
+app.listen(process.env.SERVER_PORT, () => {
+    console.log("server running on port " ,process.env.SERVER_PORT );
 })

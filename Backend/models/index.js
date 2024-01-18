@@ -26,9 +26,9 @@ db.Sequelize = Sequelize
 db.sequelize = sequelize
 
 db.doctor = require('./doctor.js')(sequelize,DataTypes);
-db.slot = require('./Slot.js')(sequelize,DataTypes);
-db.user = require('./User.js')(sequelize,DataTypes);
-db.patient = require('./Patient.js')(sequelize,DataTypes);
+db.slot = require('./slot.js')(sequelize,DataTypes);
+db.user = require('./user.js')(sequelize,DataTypes);
+db.patient = require('./patient.js')(sequelize,DataTypes);
 db.appointment = require('./appointment.js')(sequelize,DataTypes);
 db.event = require('./event.js')(sequelize,DataTypes);
 

@@ -1,8 +1,8 @@
 module.exports = {
-    HOST: 'localhost',
+    HOST: process.env.DATABASE_URL,
     USER: process.env.MYSQL_USERNAME,
     PASSWORD: process.env.MYSQL_PASSWORD,
     DB: 'clinic',
     dialect: 'mysql',
-    PORT: 3306
+    PORT: process.env.DATABASE_PORT
 }
